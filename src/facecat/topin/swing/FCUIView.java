@@ -1,0 +1,287 @@
+/*
+* FaceCat图形通讯框架(非开源)
+* 著作权编号:2015SR229355
+* 上海卷卷猫信息技术有限公司
+*/
+
+package facecat.topin.swing;
+
+import javax.swing.JPanel;
+import facecat.topin.core.*;
+import facecat.topin.btn.*;
+import facecat.topin.div.*;
+import facecat.topin.xml.*;
+import coin.*;
+import tank.*;
+import choose.*;
+import java.awt.*;
+import java.awt.event.*;
+
+/**
+ *
+ * @author taode
+ */
+public class FCUIView extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener, ComponentListener, KeyListener {
+    private SwingHost m_host = null;
+    
+    public SwingHost getHost (){
+        return m_host;
+    }
+    
+    private FCNative m_native = null;
+
+    public FCNative getNative ()
+    {
+        return m_native;
+    }
+
+    private SwingPaint m_paint = null;
+
+    public SwingPaint getPaint ()
+    {
+        return m_paint;
+    }
+    
+    public UIXmlEx m_mainFrame;
+    
+    public void onLoad (){
+        m_host = new SwingHost();
+        m_native = new FCNative();
+        m_paint = new SwingPaint();
+        m_native.setHost(m_host);
+        m_native.setPaint(m_paint);
+        m_host.setNative(m_native);
+        m_host.setView(this);
+        m_native.setSize(new FCSize(getWidth(), getHeight()));
+        m_native.setAllowScaleSize(true);
+        
+        m_mainFrame = new UIXmlEx();
+        m_mainFrame = new CoinMainFrame();
+        m_mainFrame.setNative(m_native);
+        String content = "";
+        RefObject<String> refContent = new RefObject<String>(content);
+        String dir = System.getProperty("user.dir") + "\\MainFrame.xml";
+        dir = System.getProperty("user.dir") + "\\CoinMainFrame.xml";
+        FCFile.read(dir, refContent);
+        content = refContent.argvalue;
+        m_mainFrame.load(content);
+        m_mainFrame.resetScaleSize(new FCSize(getWidth(), getHeight()));
+        m_native.update();
+
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
+        this.addMouseWheelListener(this);
+        this.addComponentListener(this);
+        this.addKeyListener(this);
+        /*iTextBox itextBox = new iTextBox();
+        itextBox.setDock(FCDockStyle.Fill);
+        m_native.addView(itextBox);
+        itextBox.setShowZoom(true);
+        itextBox.setMultiline(true);
+        itextBox.setWordWrap(true);
+        itextBox.setLineHeight(20);
+        itextBox.m_autoHighLightType = "Python";
+        itextBox.setFont(new FCFont("Default", 14, false, false, false));
+        String codePath = System.getProperty("user.dir") + "\\DMI买入.py";
+        refContent = new RefObject<String>(content);
+        FCFile.read(codePath, refContent);
+        content = refContent.argvalue;
+        itextBox.setText(content);*/
+        /*ChartDemo chartDemo = new ChartDemo();
+        chartDemo.setNative(m_native);
+        chartDemo.load();*/
+        
+        /*FCDiv div = new FCDiv();
+        m_native.addView(div);
+        div.setDock(FCDockStyle.Fill);
+        div.setSize(m_native.getSize());
+        div.setBorderColor(FCColor.None);
+        TankWar m_tankWar = new TankWar();
+        m_tankWar.setSize(new FCSize(522, 522));
+        m_tankWar.setAlign(FCHorizontalAlign.Center);
+        m_tankWar.setVerticalAlign(FCVerticalAlign.Middle);
+        div.addView(m_tankWar);*/
+        
+        /*Choose2  choose2 = new Choose2();
+        choose2.setDock(FCDockStyle.Fill);
+        m_native.addView(choose2);*/
+       m_native.invalidate();
+    }
+    
+    public FCSize m_lastSize = new FCSize();
+    
+    @Override
+    public void paint(Graphics graphics){
+        super.paint(graphics);
+        if(m_host != null){
+            FCSize nowSize = new FCSize(getWidth(), getHeight());
+            if(nowSize.cx != m_lastSize.cx || nowSize.cy != m_lastSize.cy){
+                m_mainFrame.resetScaleSize(nowSize);
+            }
+            m_host.onPaint(graphics);
+            m_lastSize = nowSize;
+        }
+    }
+    
+    public void mouseClicked(MouseEvent e){
+    }
+
+    public int m_lastButton;
+    
+    public void mousePressed(MouseEvent e){
+        if (m_host.allowOperate())
+        {
+            m_host.setTouchPoint(new FCPoint(e.getX(), e.getY()));
+            FCTouchInfo newTouchInfo = new FCTouchInfo();
+            newTouchInfo.m_firstPoint = m_native.getTouchPoint();
+            newTouchInfo.m_secondPoint = m_native.getTouchPoint();
+            if(e.getButton() == 1){
+                newTouchInfo.m_firstTouch = true;
+            }else if(e.getButton() == 2){
+                newTouchInfo.m_secondTouch = true;
+            }
+            m_lastButton = e.getButton();
+            newTouchInfo.m_clicks = e.getClickCount();
+            m_native.onTouchBegin(newTouchInfo);
+        }
+    }
+
+    public void mouseReleased(MouseEvent e){
+        if (m_host.allowOperate())
+        {
+            m_host.setTouchPoint(new FCPoint(e.getX(), e.getY()));
+            FCTouchInfo newTouchInfo = new FCTouchInfo();
+            newTouchInfo.m_firstPoint = m_native.getTouchPoint();
+            newTouchInfo.m_secondPoint = m_native.getTouchPoint();
+            if(e.getButton() == 1){
+                newTouchInfo.m_firstTouch = true;
+            }else if(e.getButton() == 2){
+                newTouchInfo.m_secondTouch = true;
+            }
+            newTouchInfo.m_clicks = e.getClickCount();
+            m_native.onTouchEnd(newTouchInfo);
+            m_lastButton = 0;
+        }
+    }
+
+    public void mouseExited(MouseEvent e){
+    }
+    
+    public void mouseEntered(MouseEvent e){
+        
+    }
+    
+    public void mouseDragged(MouseEvent e){
+        if (m_host.allowOperate())
+        {
+            m_host.setTouchPoint(new FCPoint(e.getX(), e.getY()));
+            FCTouchInfo newTouchInfo = new FCTouchInfo();
+            newTouchInfo.m_firstPoint = m_native.getTouchPoint();
+            newTouchInfo.m_secondPoint = m_native.getTouchPoint();
+            if(m_lastButton == 1){
+                newTouchInfo.m_firstTouch = true;
+                newTouchInfo.m_clicks = 1;
+            }else if(m_lastButton == 2){
+                newTouchInfo.m_secondTouch = true;
+                newTouchInfo.m_clicks = 1;
+            }else{
+                newTouchInfo.m_clicks = e.getClickCount();
+            }
+            m_native.onTouchMove(newTouchInfo);
+        }
+    }
+
+    public void mouseMoved(MouseEvent e){
+        if (m_host.allowOperate())
+        {
+            m_host.setTouchPoint(new FCPoint(e.getX(), e.getY()));
+            FCTouchInfo newTouchInfo = new FCTouchInfo();
+            newTouchInfo.m_firstPoint = m_native.getTouchPoint();
+            newTouchInfo.m_secondPoint = m_native.getTouchPoint();
+            if(m_lastButton == 1){
+                newTouchInfo.m_firstTouch = true;
+                newTouchInfo.m_clicks = 1;
+            }else if(m_lastButton == 2){
+                newTouchInfo.m_secondTouch = true;
+                newTouchInfo.m_clicks = 1;
+            }else{
+                newTouchInfo.m_clicks = e.getClickCount();
+            }
+            m_native.onTouchMove(newTouchInfo);
+        }
+    }
+    
+    public void mouseWheelMoved(MouseWheelEvent e){
+        if (m_host.allowOperate())
+        {
+            m_host.setTouchPoint(new FCPoint(e.getX(), e.getY()));
+            FCTouchInfo newTouchInfo = new FCTouchInfo();
+            newTouchInfo.m_firstPoint = m_native.getTouchPoint();
+            newTouchInfo.m_secondPoint = m_native.getTouchPoint();
+            newTouchInfo.m_delta = -e.getWheelRotation();
+            if(m_lastButton == 1){
+                newTouchInfo.m_firstTouch = true;
+                newTouchInfo.m_clicks = 1;
+            }else if(m_lastButton == 2){
+                newTouchInfo.m_secondTouch = true;
+                newTouchInfo.m_clicks = 1;
+            }else{
+                newTouchInfo.m_clicks = e.getClickCount();
+            }
+            m_native.onTouchWheel(newTouchInfo);
+        }
+    }
+    
+    public void componentResized(ComponentEvent e){
+         m_mainFrame.resetScaleSize(new FCSize(getWidth(), getHeight()));
+    }
+
+    public void componentMoved(ComponentEvent e){
+        
+    }
+
+    public void componentShown(ComponentEvent e){
+        
+    }
+
+    public void componentHidden(ComponentEvent e){
+        
+    }
+    
+    public void keyTyped(KeyEvent e){
+        m_host.m_isAlt = false;
+        m_host.m_isControl = false;
+        m_host.m_isShift = false;
+        if((e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0){
+            m_host.m_isControl = true;
+        }
+        if((e.getModifiersEx() & KeyEvent.ALT_DOWN_MASK) != 0){
+            m_host.m_isAlt = true;
+        }
+        if((e.getModifiersEx() & KeyEvent.SHIFT_DOWN_MASK) != 0){
+            m_host.m_isShift = true;
+        }
+        m_native.onKeyDown((char)e.getKeyCode());
+        m_native.onChar(e.getKeyChar());
+    }
+
+    public void keyPressed(KeyEvent e){
+         m_host.m_isAlt = false;
+        m_host.m_isControl = false;
+        m_host.m_isShift = false;
+        if((e.getModifiersEx() & KeyEvent.CTRL_DOWN_MASK) != 0){
+            m_host.m_isControl = true;
+        }
+        if((e.getModifiersEx() & KeyEvent.ALT_DOWN_MASK) != 0){
+            m_host.m_isAlt = true;
+        }
+        if((e.getModifiersEx() & KeyEvent.SHIFT_DOWN_MASK) != 0){
+            m_host.m_isShift = true;
+        }
+        m_native.onKeyDown((char)e.getKeyCode());
+    }
+
+    public void keyReleased(KeyEvent e){
+        m_native.onKeyUp((char)e.getKeyCode());
+    }
+}

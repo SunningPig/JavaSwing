@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="facecat">
+  <head>
+  </head>
+  <body>
+ <div type="splitlayout" layoutstyle="lefttoright" bordercolor="none" splitterposition="190,3" dock="fill" location="0,0" size="954,715" candragsplitter="true">
+   <div bordercolor="none" backcolor="none" padding="2,2,2,2">
+      <table name="divButtons" gridlinecolor="none" headervisible="false"  showvscrollbar="true" layoutstyle="toptobottom" dock="fill" bordercolor="none" backcolor="-200000000163">
+      <tr>
+        <th name="colP1" text="文件名" width="180"></th>
+      </tr>
+      </table>
+      </div>
+        <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" backcolor="none" splitterposition="110,0" dock="fill">
+         <div  bordercolor="none" backcolor="none" >
+          <div  name="divTop" bordercolor="none" backcolor="-200000000163" dock="fill">
+            <div type="layout" bordercolor="none" name="LayoutDiv" text="LayoutDiv" location="19,50" size="1100,44" backcolor="-200000000163">
+              <input type="custom" cid="ribbonbuttonx" margin="2,2,2,2" backcolor="rgb(59,174,218)" name="BtnSelect" text="提取数据" location="22,120" size="100,40" />
+              <input type="custom" cid="ribbonbuttonx" margin="2,2,2,2" backcolor="rgb(246,187,67)" name="OpenFile" text="导出到CSV" location="128,120" size="100,40" />
+              <input type="custom" cid="ribbonbuttonx" margin="2,2,2,2" backcolor="rgb(216,112,173)" name="BtnFileSave" text="功能3" location="232,121" size="100,40" />
+              <input type="custom" cid="ribbonbuttonx" margin="2,2,2,2" backcolor="rgb(140,192,81)" name="BtnSaveFile" text="功能4" location="269,77" size="100,40" />
+              <input type="custom" cid="ribbonbuttonx" margin="2,2,2,2" backcolor="rgb(150,123,220)" name="SelectCell" text="功能5" location="475,50" size="100,40" />
+              <input type="custom" cid="ribbonbuttonx" margin="2,2,2,2" backcolor="rgb(219,68,83)" name="BtnAllContact" text="功能6" location="377,110" size="100,40" />
+            </div>
+          </div>
+          </div>
+          <div name="divA" bordercolor="none" backcolor="none" >
+           <div dock="fill" backcolor="-200000000164" bordercolor="none" name="divContent">
+           </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

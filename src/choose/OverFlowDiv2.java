@@ -1,0 +1,121 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package choose;
+
+import facecat.topin.core.*;
+import facecat.topin.swing.*;
+
+public class OverFlowDiv2 extends FCView {
+    public int m_tick = 20;
+
+    public boolean containsPoint(FCPoint point)
+    {
+        return false;
+    }
+
+    public void onClick(FCTouchInfo touchInfo)
+    {
+        super.onClick(touchInfo);
+        m_tick = 50;
+        startTimer(m_timerID, 10);
+    }
+
+    private int m_timerID = FCView.getNewTimerID();
+
+    public void onTimer(int timerID)
+    {
+        super.onTimer(timerID);
+        if (m_timerID == timerID)
+        {
+            if (m_tick > 20)
+            {
+                m_tick--;
+                if (m_tick <= 20)
+                {
+                    stopTimer(m_timerID);
+                }
+            }
+            invalidate();
+        }
+    }
+
+    public void onPaint(FCPaint paint, FCRect clipRect)
+    {
+        int width = getWidth(), height = getHeight();
+        FCRect drawRect = new FCRect(0, 0, width, height);
+        if (m_tick > 0)
+        {
+            int d1 = 5, d2 = 15, dTick = m_tick - 20;
+            if (true)
+            {
+                FCPoint[] points1 = new FCPoint[3];
+                points1[0] = new FCPoint(drawRect.left + d1, drawRect.top + d2);
+                points1[1] = new FCPoint(drawRect.left + d1, drawRect.top + d1);
+                points1[2] = new FCPoint(drawRect.left + d2, drawRect.top + d1);
+                if (m_tick > 20)
+                {
+                    for (int i = 0; i < points1.length; i++)
+                    {
+                        points1[i] = new FCPoint(points1[i].x + dTick * (width / 6) / 30, points1[i].y + dTick * (height / 6) / 30);
+                    }
+                }
+                paint.drawPolyline(MyColor.USERCOLOR10, 2, 0, points1);
+            }
+            if (true)
+            {
+                FCPoint[] points1 = new FCPoint[3];
+                points1[0] = new FCPoint(drawRect.left + d1, drawRect.bottom - d2);
+                points1[1] = new FCPoint(drawRect.left + d1, drawRect.bottom - d1);
+                points1[2] = new FCPoint(drawRect.left + d2, drawRect.bottom - d1);
+                if (m_tick > 20)
+                {
+                    for (int i = 0; i < points1.length; i++)
+                    {
+                        points1[i] = new FCPoint(points1[i].x + dTick * (width / 6) / 30, points1[i].y - dTick * (height / 6) / 30);
+                    }
+                }
+                paint.drawPolyline(MyColor.USERCOLOR10, 2, 0, points1);
+            }
+            if (true)
+            {
+                FCPoint[] points1 = new FCPoint[3];
+                points1[0] = new FCPoint(drawRect.right - d1, drawRect.top + d2);
+                points1[1] = new FCPoint(drawRect.right - d1, drawRect.top + d1);
+                points1[2] = new FCPoint(drawRect.right - d2, drawRect.top + d1);
+                if (m_tick > 20)
+                {
+                    for (int i = 0; i < points1.length; i++)
+                    {
+                        points1[i] = new FCPoint(points1[i].x - dTick * (width / 6) / 30, points1[i].y + dTick * (height / 6) / 30);
+                    }
+                }
+                paint.drawPolyline(MyColor.USERCOLOR10, 2, 0, points1);
+            }
+            if (true)
+            {
+                FCPoint[] points1 = new FCPoint[3];
+                points1[0] = new FCPoint(drawRect.right - d1, drawRect.bottom - d2);
+                points1[1] = new FCPoint(drawRect.right - d1, drawRect.bottom - d1);
+                points1[2] = new FCPoint(drawRect.right - d2, drawRect.bottom - d1);
+                if (m_tick > 20)
+                {
+                    for (int i = 0; i < points1.length; i++)
+                    {
+                        points1[i] = new FCPoint(points1[i].x - dTick * (width / 6) / 30, points1[i].y - dTick * (height / 6) / 30);
+                    }
+                }
+                paint.drawPolyline(MyColor.USERCOLOR10, 2, 0, points1);
+            }
+        }
+
+        paint.fillRoundRect(MyColor.USERCOLOR38, drawRect, 0);
+        paint.drawRoundRect(MyColor.USERCOLOR62, 2, 0, drawRect, 0);
+    }
+
+    public void onPaintBorder(FCPaint paint, FCRect clipRect)
+    {
+    }
+}
