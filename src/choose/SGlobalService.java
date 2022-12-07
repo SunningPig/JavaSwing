@@ -50,7 +50,7 @@ public class SGlobalService extends FCClientService {
     /// <returns></returns>
     public int getUpDownInfo(ArrayList<String> filterCodes, int n, ArrayList<UpDownInfo> upDownInfos)
     {
-        try { int socketID = FCClientService.connectToServer(0, "1.116.142.147", 9959, "", 0, "", "", "", 6000);
+        try { int socketID = FCClientService.connectToServer(0, "1.116.142.147", 9959, "", 0, "", "", "", 6000, new byte[]{102,105,110,97});
             if (socketID != -1) {
                 FCBinary bw = new FCBinary();
                 int filterCodesSize = filterCodes.size();
