@@ -23,6 +23,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         setIsWindow(true);
     }
 
+    /*
+    * 文本框
+    */
     public iTextBox m_iTextBox;
 
     /*
@@ -42,30 +45,69 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         m_input2.setText("");
     }
 
+    /*
+    * 顶部层
+    */
     private FCView m_topDiv;
 
+    /*
+    * 底部层
+    */
     private FCView m_bottomDiv;
 
+    /*
+    * 选择下拉列表
+    */
     public FCComboBox m_choose;
 
+    /*
+    * 查找输入框
+    */
     public FCTextBox m_input;
 
+    /*
+    * 替换输入框
+    */
     public FCTextBox m_input2;
 
+    /*
+    * 标签
+    */
     private FCLabel m_rpLabel;
 
+    /*
+    * 跳转按钮
+    */
     private FCButton m_caseButton;
 
+    /*
+    * 跳转模式下拉列表
+    */
     private FCComboBox m_caseSelect;
 
+    /*
+    * 替换按钮
+    */
     private FCButton m_repButton;
 
+    /*
+    * 替换全部按钮
+    */
     private FCButton m_repAllButton;
 
+    /*
+    * 查找上一个按钮
+    */
     private FCButton m_leftButton;
 
+    /*
+    * 查找下一个按钮
+    */
     private FCButton m_rightButton;
 
+    /*
+    * 完成按钮
+    */
     private FCButton m_completeButton;
 
     /*
@@ -73,6 +115,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
     */
     public ArrayList<HighLightInfo> m_highLightInfos = new ArrayList<HighLightInfo>();
 
+    /*
+    * 选中索引
+    */
     public int m_selectedIndex = -1;
 
     /*

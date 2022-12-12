@@ -30,10 +30,25 @@ public class CoinChartDiv extends FCChart {
         return cDiv;
     }
 
+    /*
+    * 收盘价字段
+    */
     public static int COLUMN_CLOSE = 0;
+    /*
+    * 最高价字段
+    */
     public static int COLUMN_HIGH = 1;
+    /*
+    * 最低价字段
+    */
     public static int COLUMN_LOW = 2;
+    /*
+    * 开盘价字段
+    */
     public static int COLUMN_OPEN = 3;
+    /*
+    * 成交量字段
+    */
     public static int COLUMN_VOL = 4;
 
     /*
@@ -1004,8 +1019,19 @@ public class CoinChartDiv extends FCChart {
     */
     private ArrayList<FCScript> m_indicators = new ArrayList<FCScript>();
 
+    /*
+    * 当前的代码
+    */
     public String m_currentCode;
+    
+    /*
+    * 当前的名称
+    */
     public String m_currentSName;
+    
+    /*
+    * 当前的周期
+    */
     public int m_currentCycle = 5;
 
     /*

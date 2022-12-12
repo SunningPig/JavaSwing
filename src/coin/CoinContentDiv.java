@@ -16,12 +16,18 @@ public class CoinContentDiv extends FCDiv implements FCGridCellTouchEventCallBac
     public FCGrid m_gridInfos;
 
     /*
-    * 图形
+    * K线图形
     */
     public CoinChartDiv m_myChartDiv;
 
+    /*
+    * 触发按钮
+    */
     public PyButtonDiv m_pyButton;
 
+    /*
+    * 主框架
+    */
     public CoinMainFrame m_mainFrame;
 
     /*

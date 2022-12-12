@@ -20,6 +20,9 @@ public class TextBoxZoom extends FCDiv {
         setBorderColor(FCColor.None);
     }
 
+    /*
+    * 文本框
+    */
     public iTextBox m_iTextBox;
 
     /*

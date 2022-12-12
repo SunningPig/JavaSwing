@@ -57,10 +57,19 @@ public class ChartDemo {
     */
     public final static int AMOUNT_INDEX = 5;
     
+    /*
+    * 成交量
+    */
     private BarShape m_bar;
     
+    /*
+    * K线
+    */
     private FCChart m_chart;
     
+    /*
+    * 方法库
+    */
     private FCNative m_native;
     
     /*

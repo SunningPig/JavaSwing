@@ -20,6 +20,9 @@ public class BaseItem extends FCView {
     */
     protected FCPoint m_sheetSize = new FCPoint(2, 4);
 
+    /*
+    * 坦克大战
+    */
     public TankWar m_tankWar;
 
     /*
@@ -50,6 +53,9 @@ public class BaseItem extends FCView {
     */
     public float m_itemImgLayer;
 
+    /*
+    * 计数
+    */
     private int m_tick;
 
     /*

@@ -40,9 +40,14 @@ import java.awt.event.*;
 */
 class sshToolInterface
 {
-	//Frame
+	/*
+        * Swing的Frame
+        */
 	private JFrame m_fra = new JFrame("FaceCat/Swing");
         
+        /*
+        * 视图
+        */
         private FCUIView m_view = new FCUIView();
         
         /*

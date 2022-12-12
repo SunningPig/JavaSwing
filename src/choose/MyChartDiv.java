@@ -22,12 +22,30 @@ public class MyChartDiv extends FCChart {
         setBorderColor(FCColor.None);
     }
 
+    /*
+    * 收盘价字段
+    */
     public static int COLUMN_CLOSE = 0;
+    /*
+    * 最高价字段
+    */
     public static int COLUMN_HIGH = 1;
+    /*
+    * 最低价字段
+    */
     public static int COLUMN_LOW = 2;
+    /*
+    * 开盘价字段
+    */
     public static int COLUMN_OPEN = 3;
+    /*
+    * 成交量字段
+    */
     public static int COLUMN_VOL = 4;
 
+    /*
+    * 主框架
+    */
     public Choose2 m_mainFrame;
 
     /*
@@ -44,7 +62,6 @@ public class MyChartDiv extends FCChart {
         sysColors.add(MyColor.USERCOLOR52);
         sysColors.add(MyColor.USERCOLOR22);
         script.setSystemColors(sysColors);
-
         script.m_upColor = MyColor.USERCOLOR48;
         script.m_downColor = MyColor.USERCOLOR51;
         script.m_midColor = FCColor.Back;
@@ -86,14 +103,29 @@ public class MyChartDiv extends FCChart {
         return cDiv;
     }
 
+    /*
+    * K线柱
+    */
     public CandleShape m_candle;
 
+    /*
+    * K线层
+    */
     public ChartDiv m_candleDiv;
 
+    /*
+    * 成交量柱
+    */
     public BarShape m_bar;
 
+    /*
+    * 成交量层
+    */
     public ChartDiv m_volumeDiv;
 
+    /*
+    * 指标层
+    */
     public ChartDiv m_indDiv;
 
     /*
@@ -1247,5 +1279,8 @@ public class MyChartDiv extends FCChart {
         invalidate();
     }
 
+    /*
+    * 是否不使用指标
+    */
     public boolean m_noIndicator;
 }

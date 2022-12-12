@@ -10,36 +10,84 @@ import java.io.*;
 * 绘图类
 */
 public class SwingPaint extends FCPaint{
+    /*
+    * 是否双倍缓冲
+    */
     private boolean m_doubleBufferd = true;
     
+    /*
+    * 缓存图片
+    */
     private BufferedImage m_cacheImage;
 
+    /*
+    * 绘图对象
+    */
     private Graphics2D m_g;
     
+    /*
+    * 图片缓存
+    */
     private HashMap<String, Image> m_images = new HashMap<String, Image>();
     
+    /*
+    * 是否裁剪
+    */
     private boolean m_isClip;
 
+    /*
+    * 是否路径开始
+    */
     private boolean m_isPathStart;
     
+    /*
+    * 我的颜色
+    */
     public MyColor m_myColor = new MyColor();
 
+    /*
+    * 横向偏移
+    */
     public int m_offsetX;
 
+    /*
+    * 纵向偏移
+    */
     public int m_offsetY;
 
+    /*
+    * 透明度
+    */
     public float m_opacity = 1;
 
+    /*
+    * 绘制区域
+    */
     public FCRect m_pRect;
 
+    /*
+    * 资源路径
+    */
     public String m_resourcePath;
 
+    /*
+    * 旋转角度
+    */
     public int m_rotateAngle;
 
+    /*
+    * 横向缩放
+    */
     public double m_scaleFactorX = 1;
 
+    /*
+    * 纵向缩放
+    */
     public double m_scaleFactorY = 1;
     
+    /*
+    * 画布大小
+    */
     public FCRect m_wRect;
     
     /**

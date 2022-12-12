@@ -24,12 +24,24 @@ public class SwingHost extends FCHost implements Runnable {
     
     private long sysmtime = 0;
     
+    /*
+    * 裁剪区域
+    */
     private ArrayList<FCRect> m_clipBounds = new ArrayList<FCRect>();
 
+    /*
+    * 鼠标坐标
+    */
     private FCPoint m_mousePoint = new FCPoint();
 
+    /*
+    * 线程状态
+    */
     public int m_threadState = 0;
 
+    /*
+    * 秒表信息
+    */
     private HashMap<Integer, SwingTimer> m_timers = new HashMap<>();
 
     private boolean m_allowOperate = true;
@@ -553,10 +565,19 @@ public class SwingHost extends FCHost implements Runnable {
         beginInvoke(view, args);
     }
     
+    /*
+    * Control键是否按下
+    */
     public boolean m_isControl;
     
+    /*
+    * Shift键是否按下
+    */
     public boolean m_isShift;
     
+    /*
+    * Alt键是否按下
+    */
     public boolean m_isAlt;
     
     /*

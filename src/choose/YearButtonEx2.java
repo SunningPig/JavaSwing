@@ -20,6 +20,9 @@ public class YearButtonEx2 extends YearButton {
         m_calendarEx = (FCCalendarEx2)calendar;
     }
 
+    /*
+    * 日历
+    */
     private FCCalendarEx2 m_calendarEx;
 
     /*
@@ -44,9 +47,6 @@ public class YearButtonEx2 extends YearButton {
     */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
-        long borderColor = getPaintingBorderColor();
-        //paint.drawLine(borderColor, 1, 0, m_bounds.left, m_bounds.bottom - 1, m_bounds.right - 1, m_bounds.bottom - 1);
-        //paint.drawLine(borderColor, 1, 0, m_bounds.right - 1, m_bounds.top, m_bounds.right - 1, m_bounds.bottom - 1);
     }
 
     /*

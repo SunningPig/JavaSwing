@@ -27,6 +27,9 @@ public class OverFlowDiv2 extends FCView {
         startTimer(m_timerID, 10);
     }
 
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
     /*

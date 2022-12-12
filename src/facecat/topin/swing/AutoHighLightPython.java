@@ -9,13 +9,11 @@ import facecat.topin.core.FCPadding;
 */
 public class AutoHighLightPython {
     public static HashMap<String, String> m_jsKeyWords = new HashMap<String, String>();
-
     public static HashMap<String, String> m_pyKeyWords = new HashMap<String, String>();
     public static HashMap<String, String> m_pyFunctions1 = new HashMap<String, String>();
     public static HashMap<String, String> m_pyFunctions2 = new HashMap<String, String>();
     public static HashMap<String, String> m_pyFunctions3 = new HashMap<String, String>();
     public static HashMap<String, String> m_pyVars = new HashMap<String, String>();
-
     public static long[] m_pySysColors;
 
     /*

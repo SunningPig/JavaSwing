@@ -18,8 +18,14 @@ public class CoinRibbonButtonX extends FCButton
         setFont(new FCFont("Default", 12, false, false, false));
     }
 
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
+    /*
+    * 计数
+    */
     private int m_tick = 0;
 
     /*

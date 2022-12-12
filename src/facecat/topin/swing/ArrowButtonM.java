@@ -18,14 +18,17 @@ public class ArrowButtonM extends FCButton
 
     private int m_arrowType;
 
-    /**
-     获取或设置箭头类型
+    /*
+     获取箭头类型
      */
     public final int getArrowType()
     {
         return m_arrowType;
     }
 
+    /*
+    * 设置箭头类型
+    */
     public final void setArrowType(int value)
     {
         m_arrowType = value;

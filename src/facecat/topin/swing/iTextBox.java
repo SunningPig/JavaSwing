@@ -2705,7 +2705,14 @@ public class iTextBox extends FCDiv {
         }
     }
 
+    /*
+    * 是否按下
+    */
     public boolean m_isClickDown;
+    
+    /*
+    * 按下时的位置
+    */
     public FCPoint m_touchDownPoint = new FCPoint();
 
     /*
@@ -2760,6 +2767,9 @@ public class iTextBox extends FCDiv {
         return highLightInfo;
     }
 
+    /*
+    * 自动补全的表格
+    */
     public FCGrid m_autoCompleteGrid;
 
     /*

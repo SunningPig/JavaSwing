@@ -29,6 +29,9 @@ public class EnemyTank extends TankBase {
     */
     private float m_movingRecord = 0;
 
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
     /*

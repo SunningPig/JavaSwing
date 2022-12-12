@@ -18,6 +18,9 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
     public CoinMainFrame() {
     }
 
+    /*
+    * 创建视图
+    */
     public FCView createView(Node node, String type)
     {
             FCNative inative = getNative();

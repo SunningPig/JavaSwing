@@ -195,8 +195,14 @@ public class PyButtonDiv extends FCButton {
     {
     }
 
+    /*
+    * 内容层
+    */
     public CoinContentDiv m_contentDiv;
 
+    /*
+    * 主框架
+    */
     public CoinMainFrame m_mainFrame;
 
     /*
