@@ -1,41 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 
 import facecat.topin.core.FCLayoutStyle;
 import static facecat.topin.core.FCLayoutStyle.values;
 
-/**
- *
- * @author taode
+/*
+ * 素材类型
  */
 public enum BarrierTypeEnum {
-      /// <summary>
-        /// 墙
-        /// </summary>
+        /*
+        * 墙
+        */
         Wall,
-        /// <summary>
-        /// 钢铁
-        /// </summary>
+        /*
+        * 钢铁
+        */
         Steel,
-        /// <summary>
-        /// 草地
-        /// </summary>
+        /*
+        * 草地
+        */
         Grass,
-        /// <summary>
-        /// 水
-        /// </summary>
+        /*
+        * 水
+        */
         Water,
-        /// <summary>
-        /// 大怪
-        /// </summary>
+        /*
+        * 大怪
+        */
         Boss,
-        /// <summary>
-        /// 失败的大怪
-        /// </summary>
+        /*
+        * 失败的大怪
+        */
         FailedBoss;
     
     public int getValue() {

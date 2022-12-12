@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import javax.swing.JPanel;
@@ -17,19 +11,24 @@ import choose.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- *
- * @author taode
- */
+/*
+* 视图基类
+*/
 public class FCUIView extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener, ComponentListener, KeyListener {
     private SwingHost m_host = null;
     
+    /*
+    * 获取设备库
+    */
     public SwingHost getHost (){
         return m_host;
     }
     
     private FCNative m_native = null;
 
+    /*
+    * 获取方法库
+    */
     public FCNative getNative ()
     {
         return m_native;
@@ -37,13 +36,22 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
 
     private SwingPaint m_paint = null;
 
+    /*
+    * 获取绘图库
+    */
     public SwingPaint getPaint ()
     {
         return m_paint;
     }
     
+    /*
+    * 主界面
+    */
     public UIXmlEx m_mainFrame;
     
+    /*
+    * 初始化
+    */
     public void onLoad (){
         m_host = new SwingHost();
         m_native = new FCNative();
@@ -110,6 +118,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
     
     public FCSize m_lastSize = new FCSize();
     
+    /*
+    * 绘图方法
+    */
     @Override
     public void paint(Graphics graphics){
         super.paint(graphics);
@@ -123,11 +134,17 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         }
     }
     
+    /*
+    * 鼠标点击
+    */
     public void mouseClicked(MouseEvent e){
     }
 
     public int m_lastButton;
     
+    /*
+    * 鼠标按下
+    */
     public void mousePressed(MouseEvent e){
         if (m_host.allowOperate())
         {
@@ -146,6 +163,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         }
     }
 
+    /*
+    * 鼠标释放
+    */
     public void mouseReleased(MouseEvent e){
         if (m_host.allowOperate())
         {
@@ -164,13 +184,22 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         }
     }
 
+    /*
+    * 鼠标离开
+    */
     public void mouseExited(MouseEvent e){
     }
     
+    /*
+    * 鼠标进入
+    */
     public void mouseEntered(MouseEvent e){
         
     }
     
+   /*
+    * 鼠标拖拽
+    */
     public void mouseDragged(MouseEvent e){
         if (m_host.allowOperate())
         {
@@ -191,6 +220,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         }
     }
 
+    /*
+    * 鼠标移动
+    */
     public void mouseMoved(MouseEvent e){
         if (m_host.allowOperate())
         {
@@ -211,6 +243,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         }
     }
     
+    /*
+    * 鼠标滚动
+    */
     public void mouseWheelMoved(MouseWheelEvent e){
         if (m_host.allowOperate())
         {
@@ -232,6 +267,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         }
     }
     
+    /*
+    * 窗体界面改变
+    */
     public void componentResized(ComponentEvent e){
          m_mainFrame.resetScaleSize(new FCSize(getWidth(), getHeight()));
     }
@@ -248,6 +286,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         
     }
     
+    /*
+    * 键盘按下
+    */
     public void keyTyped(KeyEvent e){
         m_host.m_isAlt = false;
         m_host.m_isControl = false;
@@ -265,6 +306,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         m_native.onChar(e.getKeyChar());
     }
 
+    /*
+    * 键盘按住
+    */
     public void keyPressed(KeyEvent e){
          m_host.m_isAlt = false;
         m_host.m_isControl = false;
@@ -281,6 +325,9 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         m_native.onKeyDown((char)e.getKeyCode());
     }
 
+    /*
+    * 键盘释放
+    */
     public void keyReleased(KeyEvent e){
         m_native.onKeyUp((char)e.getKeyCode());
     }

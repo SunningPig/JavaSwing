@@ -1,27 +1,19 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import facecat.topin.core.*;
 
-/** 
- 绘图类
- 
+/*
+ * 绘图类
 */
 public class FCDraw
 {
-	/** 
-	 用户自定义色
+	/*
+	 * 用户自定义色
 	*/
 	public static final long FCCOLORS_USERCOLOR = -200000000100L;
 
 	/** 
 	 绘制文字
-	 
 	 @param paint 绘图对象
 	 @param text 文字
 	 @param dwPenColor 颜色

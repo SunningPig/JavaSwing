@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import facecat.topin.core.*;
@@ -10,7 +5,13 @@ import facecat.topin.swing.*;
 import facecat.topin.date.ArrowButton;
 import facecat.topin.date.FCCalendar;
 
+/*
+* 日历箭头
+*/
 public class ArrowButtonEx2 extends ArrowButton {
+    /*
+    * 构造函数
+    */
     public ArrowButtonEx2(FCCalendar calendar)
     {
         super(calendar);
@@ -18,11 +19,9 @@ public class ArrowButtonEx2 extends ArrowButton {
         setTextColor(MyColor.USERCOLOR1);
     }
 
-    /// <summary>
-    /// 重绘背景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘背景方法
+    */
     public void onPaintForeground(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth() - 1, height = getHeight() - 1;

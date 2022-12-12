@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import facecat.topin.core.*;
@@ -12,7 +7,13 @@ import facecat.topin.date.DateTitle;
 import facecat.topin.date.FCCalendar;
 import facecat.topin.date.FCCalendarMode;
 
+/*
+* 日历标题
+*/
 public class DateTitleEx2 extends DateTitle {
+    /*
+    * 构造函数
+    */
     public DateTitleEx2(FCCalendar calendar)
     {
         super(calendar);
@@ -21,13 +22,14 @@ public class DateTitleEx2 extends DateTitle {
         setSize(new FCSize(300, 50));
     }
 
+    /*
+    * 文本宽度
+    */
     public int textWidth = 0;
-
-    /// <summary>
-    /// 重绘前景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    
+    /*
+    * 重绘前景方法
+    */
     public void onPaintForeground(FCPaint paint, FCRect clipRect)
     {
         if (m_calendar != null)

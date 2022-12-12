@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import java.util.ArrayList;
@@ -14,10 +9,13 @@ import facecat.topin.swing.*;
 import facecat.topin.div.FCMenu;
 import facecat.topin.plot.PFactory;
 
+/*
+* K线视图
+*/
 public class MyChartDiv extends FCChart {
-    /// <summary>
-    /// 创建K线
-    /// </summary>
+    /*
+    * 创建K线
+    */
     public MyChartDiv()
     {
         setBackColor(FCColor.Back);
@@ -32,13 +30,9 @@ public class MyChartDiv extends FCChart {
 
     public Choose2 m_mainFrame;
 
-    /// <summary>
-    /// 创建指标
-    /// </summary>
-    /// <param name="chart">股票控件</param>
-    /// <param name="dataSource">数据源</param>
-    /// <param name="text">文本</param>
-    /// <param name="parameters">参数</param>
+    /*
+    * 创建指标
+    */
     public static FCScript createIndicator(FCChart chart, FCDataTable dataSource, String text)
     {
         FCScript script = new FCScript();
@@ -77,11 +71,9 @@ public class MyChartDiv extends FCChart {
         return script;
     }
 
-    /// <summary>
-    /// 添加一个新的图层，按照所设置的比例调节纵向高度
-    /// </summary>
-    /// <param name="vPercent">纵向高度比例</param>
-    /// <returns>图层</returns>
+    /*
+    * 添加一个新的图层，按照所设置的比例调节纵向高度
+    */
     public ChartDiv addDiv2(float vPercent)
     {
         if (vPercent <= 0) return null;
@@ -104,9 +96,9 @@ public class MyChartDiv extends FCChart {
 
     public ChartDiv m_indDiv;
 
-    /// <summary>
-    /// 添加控件方法
-    /// </summary>
+    /*
+    * 添加控件方法
+    */
     public void onAdd()
     {
         super.onAdd();
@@ -333,6 +325,9 @@ public class MyChartDiv extends FCChart {
         }
     }
 
+    /*
+    * 键盘事件
+    */
     public void onKeyDown(char key)
     {
         super.onKeyDown(key);
@@ -344,16 +339,15 @@ public class MyChartDiv extends FCChart {
             m_native.invalidate();
         }
     }
-
-    /// <summary>
-    /// 指标集合
-    /// </summary>
+    
+    /*
+    * 指标集合
+    */
     private ArrayList<FCScript> m_indicators = new ArrayList<FCScript>();
     
-    /// <summary>
-    /// 鼠标按下方法
-    /// </summary>
-    /// <param name="touchInfo"></param>
+    /*
+    * 鼠标按下方法
+    */
     public void onTouchDown(FCTouchInfo touchInfo)
     {
         FCPoint mp = touchInfo.m_firstPoint;
@@ -368,6 +362,9 @@ public class MyChartDiv extends FCChart {
         super.onTouchDown(touchInfo);
     }
 
+    /*
+    * 绑定数据
+    */
     public void bindDatas(ArrayList<SecurityData> datas){
         FCDataTable dataSource = getDataSource();
         int startIndex = dataSource.getRowsCount();
@@ -396,12 +393,9 @@ public class MyChartDiv extends FCChart {
         }
     }
 
-    /// <summary>
-    /// 绘制成交量
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="div">要绘制的层</param>
-    /// <param name="bs">线条对象</param>
+    /*
+    * 绘制成交量
+    */
     public void onPaintBar(FCPaint paint, ChartDiv div, BarShape bs)
     {
         if (m_indDiv != null && div == m_indDiv)
@@ -672,12 +666,9 @@ public class MyChartDiv extends FCChart {
         }
     }
 
-    /// <summary>
-    /// 绘制K线
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="div">要绘制的层</param>
-    /// <param name="cs">K线</param>
+    /*
+    * 绘制K线
+    */
     public void onPaintCandle(FCPaint paint, ChartDiv div, CandleShape cs)
     {
         int visibleMaxIndex = -1, visibleMinIndex = -1;
@@ -1186,6 +1177,9 @@ public class MyChartDiv extends FCChart {
         onPaintCandleEx(paint, div, cs, visibleMaxIndex, visibleMax, visibleMinIndex, visibleMin);
     }
 
+    /*
+    * 刷新数据
+    */
     public void refreshData(boolean clear)
     {
         FCDataTable dataSource = getDataSource();

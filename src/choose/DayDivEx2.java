@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import java.util.ArrayList;
@@ -12,12 +7,21 @@ import facecat.topin.core.*;
 import facecat.topin.date.*;
 import facecat.topin.swing.*;
 
+/*
+* 日期层
+*/
 public class DayDivEx2 extends DayDiv {
+    /*
+    * 构造函数
+    */
     public DayDivEx2(FCCalendar calendar)
     {
         super(calendar);
     }
 
+    /*
+    * 重置布局
+    */
     public void onResetDiv(int state)
     {
         if (m_calendar != null)

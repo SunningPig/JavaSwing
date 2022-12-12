@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 import facecat.topin.core.*;
 import java.awt.*;
@@ -12,10 +6,9 @@ import java.util.*;
 import javax.imageio.*;
 import java.io.*;
 
-/**
- *
- * @author taode
- */
+/*
+* 绘图类
+*/
 public class SwingPaint extends FCPaint{
     private boolean m_doubleBufferd = true;
     

@@ -1,19 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 import java.util.*;
 
-/// <summary>
-/// 开始标签
-/// </summary>
+/*
+* 开始标签
+*/
 public class PlayTank extends FCView {
-    /// <summary>
-    /// 创建标签
-    /// </summary>
+    /*
+    * 构造函数
+    */
     public PlayTank(TankWar tankwar) {
         m_tankWar = tankwar;
         setBorderColor(FCColor.None);
@@ -21,25 +16,28 @@ public class PlayTank extends FCView {
         setTopMost(true);
     }
 
-    /// <summary>
-    /// 随机种子
-    /// </summary>
+    /*
+    * 随机种子
+    */
     private Random m_rd = new Random();
 
-    /// <summary>
-    /// 系统颜色
-    /// </summary>
+    /*
+    * 系统颜色
+    */
     private long[] m_sysColors = new long[] { FCColor.rgba(255, 255, 255, 255), FCColor.rgba(255, 255, 0, 255), FCColor.rgba(255, 0, 255, 255), FCColor.rgba(82, 255, 255, 255) };
 
     private TankGameState m_gameState = TankGameState.Begin;
 
-    /// <summary>
-    /// 获取或设置游戏状态
-    /// </summary>
+    /*
+    * 获取游戏状态
+    */
     public TankGameState getGameState() {
         return m_gameState;
     }
 
+    /*
+    * 设置游戏状态
+    */
     public void setGameState(TankGameState value)
     {
         if (m_gameState != value)
@@ -57,15 +55,14 @@ public class PlayTank extends FCView {
         }
     }
 
-    /// <summary>
-    /// 获取或设置战场
-    /// </summary>
+    /*
+    * 获取或设置战场
+    */
     public TankWar m_tankWar;
 
-    /// <summary>
-    /// 键盘方法
-    /// </summary>
-    /// <param name="key">按键</param>
+    /*
+    * 键盘方法
+    */
     public void onKeyDown(char key) {
         super.onKeyDown(key);
         MyTank myTank = m_tankWar.m_myTank;
@@ -108,13 +105,9 @@ public class PlayTank extends FCView {
         }
     }
 
-    /// <summary>
-    /// 鼠标按下方法
-    /// </summary>
-    /// <param name="mp">坐标</param>
-    /// <param name="button">按钮</param>
-    /// <param name="clicks">点击次数</param>
-    /// <param name="delta">滚轮滚动值</param>
+    /*
+    * 鼠标按下方法
+    */
     public void onTouchDown(FCTouchInfo touchInfo) {
         super.onTouchDown(touchInfo);
         if (getGameState() == TankGameState.Playing) {
@@ -128,11 +121,9 @@ public class PlayTank extends FCView {
         }
     }
 
-    /// <summary>
-    /// 重绘背景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘背景方法
+    */
     public void onPaintBackground(FCPaint paint, FCRect clipRect) {
         int width = getWidth();
         int height = getHeight();

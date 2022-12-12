@@ -1,24 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 import java.util.*;
 
-/// <summary>
-/// 障碍物石头
-/// </summary>
+/*
+* 障碍物石头
+*/
 public class WallBarrier extends BaseItem {
-    /// <summary>
-    /// 构造函数
-    /// </summary>
-    /// <param name="imagePath">背景图片</param>
-    /// <param name="itemPosition">位置</param>
-    /// <param name="itemGroup">阵营</param>
-    /// <param name="barrierType">障碍物种类</param>
-    /// <param name="tankWar">坦克大战</param>
+    /*
+    *  构造函数
+    */
     public WallBarrier(String imagePath, FCPoint itemPosition, ItemGroupEnum itemGroup, BarrierTypeEnum barrierType, TankWar tankWar){
         super(imagePath, itemPosition, itemGroup, tankWar);
         m_barrierType = barrierType;
@@ -38,8 +28,8 @@ public class WallBarrier extends BaseItem {
         }
     }
 
-    /// <summary>
-    /// 获取或设置障碍物类型
-    /// </summary>
+    /*
+    *  获取或设置障碍物类型
+    */
     public BarrierTypeEnum m_barrierType;
 }

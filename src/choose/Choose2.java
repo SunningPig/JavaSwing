@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import java.util.*;
@@ -13,25 +8,31 @@ import facecat.topin.date.*;
 import facecat.topin.swing.*;
 import facecat.topin.service.FCClientService;
 
+/*
+* 平均涨跌幅
+*/
 public class Choose2 extends FCView {
-    /// <summary>
-    /// 秒表ID
-    /// </summary>
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
-    /// <summary>
-    /// 构造函数
-    /// </summary>
+    /*
+    * 构造函数
+    */
     public Choose2()
     {
         setBackColor(FCColor.Back);
     }
 
+    /*
+    * 日历
+    */
     public FCCalendarEx2 m_calendarEx;
 
-    /// <summary>
-    /// 添加控件方法
-    /// </summary>
+    /*
+    * 添加控件方法
+    */
     public void onAdd()
     {
         super.onAdd();
@@ -48,8 +49,6 @@ public class Choose2 extends FCView {
         m_calendarEx.setDock(FCDockStyle.Fill);
         //m_calendarEx.setMargin(padding);
         addView(m_calendarEx);
-
-
         m_calendarEx.getTimeDiv().setHeight(0);
         //calendar.setTopMost(true);
         m_calendarEx.getHeadDiv().setFont(new FCFont("Default", 12, false, false, false));
@@ -89,8 +88,14 @@ public class Choose2 extends FCView {
         m_calendarEx.update();
     }
 
+    /*
+    * 是否加载
+    */
     public boolean m_isLoaded;
 
+    /*
+    * 检查数据
+    */
     public Runnable runnable = new Runnable() {
         @Override
         public void run() {
@@ -98,26 +103,44 @@ public class Choose2 extends FCView {
         }
     };
 
+    /*
+    * K线
+    */
     public MyChartDiv m_myChartDiv = null;
 
+    /*
+    * 涨跌数据
+    */
     public ArrayList<UpDownInfo> m_upDownInfos = new ArrayList<UpDownInfo>();
 
+    /*
+    * 涨跌数据键值对
+    */
     public HashMap<Double, UpDownInfo> m_upDownInfos2 = new HashMap<Double, UpDownInfo>();
 
+    /*
+    * 是否显示底部按钮
+    */
     private boolean m_showBottomButtons = false;
 
-    /// <summary>
-    /// 超时
-    /// </summary>
+    /*
+    * 超时
+    */
     private int m_timeOut = 10000;
 
+    /*
+    * 新的涨跌数据
+    */
     private ArrayList<UpDownInfo> m_newUpDownInfos = new ArrayList<UpDownInfo>();
     
+    /*
+    * 数据服务
+    */
     public SGlobalService m_globalServide;
-
-    /// <summary>
-    /// 线程处理
-    /// </summary>
+    
+    /*
+    * 请求数据
+    */
     private void doTime()
     {
         ArrayList<String> filters = new ArrayList<String>();
@@ -143,6 +166,9 @@ public class Choose2 extends FCView {
         }
     }
 
+    /*
+    * 秒表事件
+    */
     public void onTimer(int timerID)
     {
         super.onTimer(timerID);
@@ -184,13 +210,18 @@ public class Choose2 extends FCView {
         }
     }
 
-
+    /*
+    * 鼠标移动事件
+    */
     public void onTouchMove(FCTouchInfo touchInfo)
     {
         super.onTouchMove(touchInfo);
         invalidate();
     }
 
+    /*
+    * 绘制边线
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth(), height = getHeight();

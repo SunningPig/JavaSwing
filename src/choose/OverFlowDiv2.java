@@ -1,21 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import facecat.topin.core.*;
 import facecat.topin.swing.*;
 
+/*
+* 浮动特效层
+*/
 public class OverFlowDiv2 extends FCView {
     public int m_tick = 20;
 
+    /*
+    * 是否包含坐标
+    */
     public boolean containsPoint(FCPoint point)
     {
         return false;
     }
 
+    /*
+    * 点击事件
+    */
     public void onClick(FCTouchInfo touchInfo)
     {
         super.onClick(touchInfo);
@@ -25,6 +29,9 @@ public class OverFlowDiv2 extends FCView {
 
     private int m_timerID = FCView.getNewTimerID();
 
+    /*
+    * 秒表事件
+    */
     public void onTimer(int timerID)
     {
         super.onTimer(timerID);
@@ -42,6 +49,9 @@ public class OverFlowDiv2 extends FCView {
         }
     }
 
+    /*
+    * 重绘事件
+    */
     public void onPaint(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth(), height = getHeight();
@@ -115,6 +125,9 @@ public class OverFlowDiv2 extends FCView {
         paint.drawRoundRect(MyColor.USERCOLOR62, 2, 0, drawRect, 0);
     }
 
+    /*
+    * 重绘边线事件
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
     }

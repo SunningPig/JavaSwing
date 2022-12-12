@@ -1,53 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 
-/// <summary>
-/// 我方坦克
-/// </summary>
+/*
+ * 我方坦克
+ */
 public class MyTank extends TankBase
 {
-    /// <summary>
-    /// 构造方法
-    /// </summary>
-    /// <param name="imagePath">图片</param>
-    /// <param name="itemPosition">位置</param>
-    /// <param name="tankSpeed">速度</param>
-    /// <param name="itemGroup">阵营</param>
-    /// <param name="tankWar">坦克大战</param>
+    /*
+    * 构造方法
+    */
     public MyTank(String imagePath, FCPoint itemPosition, int tankSpeed, ItemGroupEnum itemGroup, TankWar tankWar)
     {
         super(imagePath, itemPosition, tankSpeed, itemGroup, tankWar);
         setBounds(new FCRect(itemPosition.x, itemPosition.y, itemPosition.x + 40, itemPosition.y + 40));
     }
 
-    /// <summary>
-    /// 获取或设置坦克子弹的新速度
-    /// </summary>
+    /*
+    * 获取或设置坦克子弹的新速度
+    */
     public int m_newMissileSpeed = 4;
 
-    /// <summary>
-    /// 获取或设置坦克的新速度
-    /// </summary>
+    /*
+    * 获取或设置坦克的新速度
+    */
     public int m_newSpeed = 4;
 
-    /// <summary>
-    /// 获取控件类型
-    /// </summary>
-    /// <returns>类型</returns>
+    /*
+    * 获取控件类型
+    */
     public String getViewType()
     {
         return "MyTank";
     }
 
-    /// <summary>
-    /// 移动
-    /// </summary>
-    /// <param name="direction">方向</param>
+    /*
+    * 移动
+    */
     public void move(DirectionEnum direction)
     {
         if (!m_tankWar.m_hitEagle)
@@ -107,11 +95,9 @@ public class MyTank extends TankBase
         }
     }
 
-    /// <summary>
-    /// 绘图函数
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 绘图函数
+    */
     public void onPaintBackground(FCPaint paint, FCRect clipRect)
     {
         setBounds(new FCRect(getLeft(), getTop(), getLeft() + 40, getTop() + 40));          

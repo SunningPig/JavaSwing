@@ -1,28 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
-/**
- *
- * @author taode
- */
+/*
+* 涨跌信息
+*/
 public class UpDownInfo {
-    public double m_allCount;
+    public double m_allCount; //所有数据
+ 
+    public double m_avgRange; //平均值1
+ 
+    public double m_amount; //成交额
 
-    public double m_avgRange;
+    public double m_date; //日期
 
-    public double m_amount;
+    public double m_downCount; //跌的家数
 
-    public double m_date;
+    public double m_volume; //成交量
 
-    public double m_downCount;
+    public double m_upCount; //涨的家数
 
-    public double m_volume;
-
-    public double m_upCount;
-
-    public double m_avgRange2;
+    public double m_avgRange2; //平均值2
 }

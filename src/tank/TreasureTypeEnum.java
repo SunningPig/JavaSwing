@@ -1,44 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 
 import static tank.BarrierTypeEnum.values;
 
-/**
- *
- * @author taode
- */
+/*
+* 道具类型战场
+*/
 public enum TreasureTypeEnum {
-    /// <summary>
-    /// 炸弹
-    /// </summary>
+    /*
+    *  炸弹
+    */
     Bomb,
-    /// <summary>
-    /// 护罩
-    /// </summary>
+    /*
+    *  护罩
+    */
     Shield,
-    /// <summary>
-    /// 星星
-    /// </summary>
+    /*
+    *  星星
+    */
     Star,
-    /// <summary>
-    /// 铁锹
-    /// </summary>
+    /*
+    *  铁锹
+    */
     Shovel,
-    /// <summary>
-    /// 生命值
-    /// </summary>
+    /*
+    *  生命值
+    */
     Life,
-    /// <summary>
-    /// 时间
-    /// </summary>
+    /*
+    *  时间
+    */
     Timer,
-    /// <summary>
-    /// 无
-    /// </summary>
+    /*
+    *  无
+    */
     None;
     public int getValue() {
         return this.ordinal();

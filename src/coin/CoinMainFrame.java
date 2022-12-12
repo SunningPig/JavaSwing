@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 import facecat.topin.btn.FCButton;
 import facecat.topin.core.*;
@@ -12,14 +7,14 @@ import facecat.topin.swing.*;
 import facecat.topin.grid.*;
 import org.w3c.dom.Node;
 
-/// <summary>
-/// 管理系统
-/// </summary>
+/*
+* 主框架
+*/
 public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGridCellTouchEventCallBack, FCPaintEventCallBack
 {
-    /// <summary>
-    /// 创建行情系统
-    /// </summary>
+    /*
+    * 创建行情系统
+    */
     public CoinMainFrame() {
     }
 
@@ -36,30 +31,29 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
             }
     }
 
-    /// <summary>
-    /// 当前标题
-    /// </summary>
+    /*
+    * 当前标题
+    */
     public String m_currentTitle = "";
 
-    /// <summary>
-    /// 当前交易所
-    /// </summary>
+    /*
+    * 当前交易所
+    */
     public String m_currentExchange = "binance";
 
-    /// <summary>
-    /// 当前行情
-    /// </summary>
+    /*
+    * 当前行情
+    */
     public String m_currentQuoteID = "binance/bitcoin/tether";
 
-    /// <summary>
-    /// 选择对子
-    /// </summary>
+    /*
+    * 选择对子
+    */
     public String m_currentPari = "BTC/USDT";
 
-    /// <summary>
-    /// 隐藏其他的内容
-    /// </summary>
-    /// <param name="thisButton"></param>
+    /*
+    * 隐藏其他的内容
+    */
     private void hideOtherContents(PyButtonDiv thisButton)
     {
         if (true)
@@ -78,14 +72,9 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
         }
     }
 
-    /// <summary>
-    /// 单元格点击事件
-    /// </summary>
-    /// <param name="eventName"></param>
-    /// <param name="sender"></param>
-    /// <param name="cell"></param>
-    /// <param name="touchInfo"></param>
-    /// <param name="invoke"></param>
+    /*
+    * 单元格点击事件
+    */
     public void callGridCellTouchEvent(String eventName, Object sender, FCGridCell cell, FCTouchInfo touchInfo, Object invoke)
     {
         if (eventName.equals("ongridcellclick"))
@@ -95,10 +84,9 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
         }
     }
 
-    /// <summary>
-    /// 获取选中的按钮
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 获取选中的按钮
+    */
     public PyButtonDiv getSelectedPyButton()
     {
         FCGrid divButtons = getGrid("divButtons");
@@ -112,14 +100,9 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
         return null;
     }
 
-    /// <summary>
-    /// 查询按钮、重置按钮点击事件
-    /// </summary>
-    /// <param name="sender">发送者</param>
-    /// <param name="mp">坐标</param>
-    /// <param name="button">按钮</param>
-    /// <param name="clicks">点击事件</param>
-    /// <param name="delta">滚轮滚动值</param>
+    /*
+    * 查询按钮、重置按钮点击事件
+    */
     public void callTouchEvent(String eventName, Object sender, FCTouchInfo touchInfo, Object invoke)
     {
         if (touchInfo.m_firstTouch && touchInfo.m_clicks == 1)
@@ -161,10 +144,9 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
         }
     }
 
-    /// <summary>
-    /// 加载XML
-    /// </summary>
-    /// <param name="xmlPath">XML路径</param>
+    /*
+    * 加载XML
+    */
     public void load(String xmlPath) {
         loadXml(xmlPath, null);
         FCView control = getNative().getViews().get(0);
@@ -225,15 +207,9 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
         //searchData("全部币种");
     }
 
-    /// <summary>
-    /// 重绘方法
-    /// </summary>
-    /// <param name="eventName"></param>
-    /// <param name="sender"></param>
-    /// <param name="paint"></param>
-    /// <param name="clipRect"></param>
-    /// <param name="invoke"></param>
-    /// <returns></returns>
+    /*
+    * 重绘方法
+    */
     public boolean callPaintEvent(String eventName, Object sender, FCPaint paint, FCRect clipRect, Object invoke)
     {
         if (eventName.equals("onpaintborder"))
@@ -287,21 +263,6 @@ public class CoinMainFrame extends UIXmlEx implements FCTouchEventCallBack, FCGr
                 FCDraw.drawText(paint, "选择品种", MyColor.USERCOLOR3, tFont, b1.left + 10, b1.top + 10);
                 FCDraw.drawText(paint, str2, MyColor.USERCOLOR3, tFont, b1.left + 90, b1.top + 10);
             }
-            //if (true)
-            //{
-            //    FCSize tSize = paint.textSize(str3, tFont);
-            //    FCRect b1 = new FCRect(right + 10, 10, 200, 45);
-            //    b1.right = b1.left + 80 + tSize.cx;
-            //    FCPoint[] points = new FCPoint[4];
-            //    points[0] = new FCPoint(b1.left, b1.top);
-            //    points[1] = new FCPoint(b1.left + 70, b1.top);
-            //    points[2] = new FCPoint(b1.left + 60, b1.bottom - 1);
-            //    points[3] = new FCPoint(b1.left, b1.bottom - 1);
-            //    paint.fillPolygon(MyColor.USERCOLOR108, points);
-            //    paint.drawRoundRect(MyColor.USERCOLOR108, 1, 0, b1, 0);
-            //    FCDraw.drawText(paint, "行情", MyColor.USERCOLOR3, tFont, b1.left + 10, b1.top + 10);
-            //    FCDraw.drawText(paint, str3, MyColor.USERCOLOR3, tFont, b1.left + 70, b1.top + 10);
-            //}
             return false;
         }
         return false;

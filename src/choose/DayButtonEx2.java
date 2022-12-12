@@ -1,27 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import facecat.topin.core.*;
 import facecat.topin.date.*;
 import facecat.topin.swing.*;
 
+/*
+* 日的按钮
+*/
 public class DayButtonEx2 extends DayButton {
-    /// <summary>
-    /// 创建按钮
-    /// </summary>
-    /// <param name="calendar"></param>
+    /*
+    * 构造函数
+    */
     public DayButtonEx2(FCCalendar calendar)
     {
         super(calendar);
         m_calendarEx = (FCCalendarEx2)calendar;
     }
 
+    /*
+    * 日历
+    */
     private FCCalendarEx2 m_calendarEx;
 
+    /*
+    * 是否选中
+    */
     public boolean isSelected()
     {
         CDay selectedDay = m_calendar.getSelectedDay();
@@ -37,10 +40,9 @@ public class DayButtonEx2 extends DayButton {
         }
     }
 
-    /// <summary>
-    /// 获取要绘制的前景色
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 获取要绘制的前景色
+    */
     public long getPaintingTextColor()
     {
         CDay selectedDay = m_calendar.getSelectedDay();
@@ -63,17 +65,18 @@ public class DayButtonEx2 extends DayButton {
         }
     }
 
+    /*
+    * 点击事件
+    */
     public void onClick(FCTouchInfo touchInfo)
     {
         super.onClick(touchInfo);
         ((FCCalendarEx2)m_calendar).m_overFlowDiv.onClick(touchInfo);
     }
 
-    /// <summary>
-    /// 重绘背景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘背景方法
+    */
     public void onPaintBackGround(FCPaint paint, FCRect clipRect)
     {
         if (m_bounds.right - m_bounds.left > 0)
@@ -88,21 +91,17 @@ public class DayButtonEx2 extends DayButton {
         }
         //paint.fillRect(backColor, m_bounds);
     }
-
-    /// <summary>
-    /// 重绘边线方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    
+    /*
+    * 重绘边线方法
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
     }
-
-    /// <summary>
-    /// 重绘前景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    
+    /*
+    * 重绘前景方法
+    */
     public void onPaintForeground(FCPaint paint, FCRect clipRect)
     {
         if (m_day != null && m_bounds.right - m_bounds.left > 0)

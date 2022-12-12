@@ -1,28 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 
 import static tank.BarrierTypeEnum.values;
 
-/**
- *
- * @author taode
+
+/*
+ * 阵营组别
  */
 public enum ItemGroupEnum {
-    /// <summary>
-    /// 我方阵营
-    /// </summary>
+    /*
+    * 我方阵营
+    */
     Friendly,
-    /// <summary>
-    /// 地方阵营
-    /// </summary>
+    /*
+    * 地方阵营
+    */
     Enemy,
-    /// <summary>
-    /// 其他阵营
-    /// </summary>
+    /*
+    * 其他阵营
+    */
     Others;
     public int getValue() {
         return this.ordinal();

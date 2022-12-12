@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facecat.topin.swing;
 import facecat.topin.core.*;
 import facecat.topin.div.FCMenuItem;
@@ -11,10 +6,13 @@ import facecat.topin.btn.*;
 import facecat.topin.label.*;
 import java.util.*;
 
+/*
+* 查找替换层
+*/
 public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEventCallBack {
-    /// <summary>
-    /// 构造函数
-    /// </summary>
+    /*
+    * 构造函数
+    */
     public FindReplaceDiv()
     {
         setBorderColor(FCColor.None);
@@ -27,15 +25,17 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
 
     public iTextBox m_iTextBox;
 
-    /// <summary>
-    /// 是否显示偏移
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 是否显示偏移
+    */
     public boolean displayOffset()
     {
         return false;
     }
 
+    /*
+    * 重置
+    */
     public void reset()
     {
         m_input.setText("");
@@ -68,13 +68,16 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
 
     private FCButton m_completeButton;
 
-    /// <summary>
-    /// 高亮信息
-    /// </summary>
+    /*
+    * 高亮信息
+    */
     public ArrayList<HighLightInfo> m_highLightInfos = new ArrayList<HighLightInfo>();
 
     public int m_selectedIndex = -1;
 
+    /*
+    * 添加视图方法
+    */
     public void onAdd()
     {
         super.onAdd();
@@ -173,6 +176,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 更新布局
+    */
     public void update()
     {
         super.update();
@@ -240,6 +246,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 显示隐藏
+    */
     public void showOrHideReplace(boolean showOrHide)
     {
         if (showOrHide)
@@ -258,6 +267,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         m_iTextBox.invalidate();
     }
 
+    /*
+    * 下拉列表索引改变事件
+    */
     public void callEvent(String eventName, Object sender, Object invoke)
     {
         if (sender == m_choose)
@@ -279,6 +291,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 查找全部
+    */
     private void findAll(boolean autoSelect, boolean invalidate)
     {
         boolean ignoreCase = true;
@@ -361,6 +376,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 替换全部
+    */
     private void releaceAll()
     {
         int replaceCount = 0;
@@ -417,6 +435,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 替换当前
+    */
     private void replaceCurrent()
     {
         if (m_highLightInfos.size() > 0)
@@ -452,6 +473,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 自动跳转
+    */
     private void autoJump()
     {
         if (m_selectedIndex != -1 && m_highLightInfos.size() > 0)
@@ -492,6 +516,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 向前选中
+    */
     private void selectFront()
     {
         if (m_selectedIndex != -1 && m_highLightInfos.size() > 0)
@@ -507,6 +534,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 向后选中
+    */
     private void selectNext()
     {
         if (m_selectedIndex != -1 && m_highLightInfos.size() > 0)
@@ -522,6 +552,9 @@ public class FindReplaceDiv extends FCView implements FCEventCallBack, FCTouchEv
         }
     }
 
+    /*
+    * 鼠标方法
+    */
     public void callTouchEvent(String eventName, Object sender, FCTouchInfo touchInfo, Object invoke)
     {
         if (sender == m_caseButton)

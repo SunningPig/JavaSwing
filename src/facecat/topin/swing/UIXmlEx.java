@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import facecat.topin.core.*;
@@ -13,11 +7,13 @@ import facecat.topin.xml.*;
 
 import org.w3c.dom.*;
 
+/*
+* Xml解析
+*/
 public class UIXmlEx extends FCUIXml
 {
 	/** 
 	 创建控件
-	 
 	 @param node 节点
 	 @param type 类型
 	 @return 控件
@@ -40,16 +36,18 @@ public class UIXmlEx extends FCUIXml
 		}
 	}
         
+        /*
+        * 加载Xml
+        */
         public void load(String xmlPath){
             super.loadXml(xmlPath, null);
         }
 
         public double m_scaleFactor = 0.5;
 
-        /// <summary>
-        /// 重置缩放尺寸
-        /// </summary>
-        /// <param name="clientSize">客户端大小</param>
+        /*
+        * 重置缩放尺寸
+        */
         public void resetScaleSize(FCSize clientSize)
         {
             FCNative inative = getNative();

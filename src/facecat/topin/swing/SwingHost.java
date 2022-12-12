@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import facecat.topin.core.*;
@@ -17,12 +11,13 @@ import facecat.topin.input.*;
 import facecat.topin.tab.*;
 import java.awt.*;
 
-/**
- *
- * @author taode
- */
+/*
+* 设备对接
+*/
 public class SwingHost extends FCHost implements Runnable {
-
+    /*
+    * 构造函数
+    */
     public SwingHost() {
 
     }
@@ -39,25 +34,37 @@ public class SwingHost extends FCHost implements Runnable {
 
     private boolean m_allowOperate = true;
 
+    /*
+    * 允许操作
+    */
     public final boolean allowOperate() {
         return m_allowOperate;
     }
 
+    /*
+    * 设置是否允许操作
+    */
     public final void setAllowOperate(boolean value) {
         m_allowOperate = value;
     }
 
     private boolean m_allowPartialPaint = true;
 
+    /*
+    * 是否允许局部绘图
+    */
     public final boolean allowPartialpaint() {
         return m_allowPartialPaint;
     }
 
+    /*
+    * 设置是否允许局部绘图
+    */
     public final void setAllowPartialPaint(boolean value) {
         m_allowPartialPaint = value;
     }
     
-/*
+    /*
      * 获取触摸形状
      */
     public FCCursors getCursor()
@@ -196,20 +203,32 @@ public class SwingHost extends FCHost implements Runnable {
 
     private FCNative m_native = null;
 
+    /*
+    * 方法库
+    */
     public final FCNative getNative() {
         return m_native;
     }
 
+    /*
+    * 设置方法库
+    */
     public final void setNative(FCNative value) {
         m_native = value;
     }
 
     private JPanel m_view = null;
 
+    /*
+    * 获取视图
+    */
     public final JPanel getView() {
         return m_view;
     }
 
+    /*
+    * 设置视图
+    */
     public final void setView(JPanel value) {
         m_view = value;
         //m_handler = new Handler(getView().getContext().getMainLooper());
@@ -219,14 +238,23 @@ public class SwingHost extends FCHost implements Runnable {
 
     private boolean m_viewVisible = true;
 
+    /*
+    * 视图是否可见
+    */
     public final boolean isViewVisible() {
         return m_viewVisible;
     }
 
+    /*
+    * 设置视图是否可见
+    */
     public final void setViewVisible(boolean value) {
         m_viewVisible = value;
     }
 
+    /*
+    * 开始跨线程调用
+    */
     public void beginInvoke(FCView view, Object args) {
         SwingUtilities.invokeLater(new Runnable() {
           public void run() {
@@ -235,6 +263,9 @@ public class SwingHost extends FCHost implements Runnable {
       });
     }
 
+    /*
+    * 复制到剪贴板
+    */
     public final void copy(String text) {
 
     }
@@ -246,6 +277,9 @@ public class SwingHost extends FCHost implements Runnable {
         
     }
 
+    /*
+    * 创建内部视图
+    */
     public final FCView createInternalView(FCView parent, String clsid) {
         FCSplitLayoutDiv splitLayoutDiv = (FCSplitLayoutDiv) ((parent instanceof FCSplitLayoutDiv) ? parent : null);
         if (splitLayoutDiv != null) {
@@ -363,6 +397,9 @@ public class SwingHost extends FCHost implements Runnable {
         return null;
     }
 
+    /*
+    * 查找预处理视图
+    */
     public FCView findPreviewsView(FCView view) {
         if (view.allowPreviewsEvent()) {
             return view;
@@ -376,6 +413,9 @@ public class SwingHost extends FCHost implements Runnable {
         }
     }
 
+    /*
+    * 获取客户端的大小
+    */
     public FCSize getClientSize() {
         FCSize size = new FCSize();
         if (m_view != null) {
@@ -384,6 +424,9 @@ public class SwingHost extends FCHost implements Runnable {
         return size;
     }
 
+    /*
+    * 获取触摸位置
+    */
     public final FCPoint getTouchPoint() {
         FCPoint mp = m_mousePoint.clone();
         if (m_native.allowScaleSize()) {
@@ -397,6 +440,9 @@ public class SwingHost extends FCHost implements Runnable {
         return mp;
     }
 
+    /*
+    * 获取裁剪区域
+    */
     public final int getIntersectRect(RefObject<FCRect> lpDestRect, RefObject<FCRect> lpSrc1Rect, RefObject<FCRect> lpSrc2Rect) {
         lpDestRect.argvalue.left = Math.max(lpSrc1Rect.argvalue.left, lpSrc2Rect.argvalue.left);
         lpDestRect.argvalue.right = Math.min(lpSrc1Rect.argvalue.right, lpSrc2Rect.argvalue.right);
@@ -413,6 +459,9 @@ public class SwingHost extends FCHost implements Runnable {
         }
     }
 
+    /*
+    * 获取大小
+    */
     public final FCSize getSize() {
         if (m_native.allowScaleSize()) {
             return m_native.getScaleSize();
@@ -421,10 +470,16 @@ public class SwingHost extends FCHost implements Runnable {
         }
     }
 
+    /*
+    * 获取合并区域
+    */
     public final int getUnionRect(RefObject<FCRect> lpDestRect, RefObject<FCRect> lpSrc1Rect, RefObject<FCRect> lpSrc2Rect) {
         return 0;
     }
 
+    /*
+    * 秒表方法
+    */
     public final int invokeThread(Object lpParam) {
         if (lpParam instanceof SwingHost) {
             SwingHost androidHost = (SwingHost) lpParam;
@@ -445,6 +500,9 @@ public class SwingHost extends FCHost implements Runnable {
         return 0;
     }
 
+    /*
+    * 局部绘图
+    */
     public final void invalidate(FCRect rect) {
         if (m_allowPartialPaint)
         {
@@ -477,6 +535,9 @@ public class SwingHost extends FCHost implements Runnable {
         }
     }
 
+    /*
+    * 全部绘图
+    */
     public final void invalidate() {
         synchronized (m_clipBounds) {
             m_clipBounds.clear();
@@ -485,6 +546,9 @@ public class SwingHost extends FCHost implements Runnable {
         m_view.repaint();
     }
 
+    /*
+    * 跨线程调用
+    */
     public final void invoke(FCView view, Object args) {
         beginInvoke(view, args);
     }
@@ -495,6 +559,9 @@ public class SwingHost extends FCHost implements Runnable {
     
     public boolean m_isAlt;
     
+    /*
+    * 特殊键是否按下
+    */
     public boolean isKeyPress(char key){
         //Control
         if(key == (char)0x11){
@@ -511,6 +578,9 @@ public class SwingHost extends FCHost implements Runnable {
         return false;
     }
 
+    /*
+    * 重绘方法
+    */
     public final void onPaint(Graphics g) {
         FCSize displaySize = m_native.getSize();
         int clipBoundsSize = m_clipBounds.size();
@@ -559,6 +629,9 @@ public class SwingHost extends FCHost implements Runnable {
         paint.endPaint();
     }
 
+    /*
+    * 秒表方法
+    */
     public final void onTimer() {
         if (m_native != null) {
             if (m_view != null) {
@@ -600,22 +673,37 @@ public class SwingHost extends FCHost implements Runnable {
         }
     }
 
+    /*
+    * 粘贴数据
+    */
     public final String paste() {
         return "";
     }
 
+    /*
+    * 运行线程
+    */
     public void run() {
         invokeThread(this);
     }
 
+    /*
+    * 设置第二个点
+    */
     public final void setTouchPoint(FCPoint mp) {
         m_mousePoint = mp.clone();
     }
 
+    /*
+    * 显示提示框
+    */
     public void showToolTip(String var1, FCPoint var2) {
 
     }
 
+    /*
+    * 启动秒表
+    */
     public final void startTimer(int timerID, int interval) {
         interval = interval / 10;
         if(interval < 1){
@@ -635,6 +723,9 @@ public class SwingHost extends FCHost implements Runnable {
         }
     }
 
+    /*
+    * 结束秒表
+    */
     public final void stopTimer(int timerID) {
         synchronized (m_timers) {
             if (m_timers.containsKey(timerID)) {

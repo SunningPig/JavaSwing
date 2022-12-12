@@ -1,24 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facecat.topin.swing;
 import java.util.*;
 import facecat.topin.core.*;
 
-/**
- *
- * @author taode
- */
+/*
+* 我的颜色
+*/
 public class MyColor {
     public static String m_systemFont = "";
 
+    /*
+    * 设置系统颜色
+    */
     public static void setSystemFont(String value)
     {
         m_systemFont = value;
     }
-
+    
+    /*
+    * 获取系统颜色
+    */
     public static String getSystemFont()
     {
         if (m_systemFont.length() == 0)
@@ -39,11 +39,17 @@ public class MyColor {
 
     public static String m_zoomFactor = "";
 
+    /*
+    * 设置缩放比例
+    */
     public static void setZoomFactor(String value)
     {
         m_zoomFactor = value;
     }
 
+    /*
+    * 获取缩放比例
+    */
     public static String getZoomFactor()
     {
         if (m_zoomFactor.length() == 0)
@@ -56,15 +62,17 @@ public class MyColor {
 
     public static int m_reverseColor = -1;
 
+    /*
+    * 设置反色
+    */
     public static void setReverseColor(int reverseColor)
     {
         m_reverseColor = reverseColor;
     }
 
-    /// <summary>
-    /// 获取搜索地址
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 获取反色
+    */
     public static int getReverseColor()
     {
         if (m_reverseColor == -1)
@@ -201,10 +209,16 @@ public class MyColor {
 
     public static HashMap<Long, Long> m_myColors = new HashMap<Long, Long>();
 
+    /*
+    * 设置样式
+    */
     public static void setStyle(int value){
         m_style = value;
     }
 
+    /*
+    * 创建颜色
+    */
     public void createColors(){
         m_userColors.clear();
         if (m_style == 1)
@@ -1977,6 +1991,9 @@ public class MyColor {
         m_myColors.clear();
     }
 
+    /*
+    * 获取我的颜色
+    */
     public long getUserColor(long color)
     {
         if (m_lastStyle != m_style)

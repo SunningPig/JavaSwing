@@ -1,53 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 import facecat.topin.core.*;
 import java.util.*;
 import facecat.topin.service.*;
 import facecat.topin.sock.*;
 
+/*
+* 数据服务
+*/
 public class SGlobalService extends FCClientService {
-    /// <summary>
-    /// 创建登录服务
-    /// </summary>
+    /*
+    * 构造函数
+    */
     public SGlobalService()
     {
         setServiceID(SERVICEID_GLOBAL);
         setCompressType(COMPRESSTYPE_GZIP);
     }
-    /// <summary>
-    /// 指标服务ID
-    /// </summary>
-    public static int SERVICEID_GLOBAL = 10000;
 
-    /// <summary>
-    /// 获取股票代码
-    /// </summary>
+    /*
+    * 服务ID
+    */
+    public static int SERVICEID_GLOBAL = 10000;
+    
+    /*
+    * 获取股票代码
+    */
     public static int FUNCTIONID_GLOBAL_GETCODES = 2;
 
-    /// <summary>
-    /// 获取股票代码
-    /// </summary>
+    /*
+    * 获取股票值
+    */
     public static int FUNCTIONID_GLOBAL_GETVALUES = 4;
 
-    /// <summary>
-    /// 获取涨跌幅情况
-    /// </summary>
+    /*
+    * 获取涨跌幅情况
+    */
     public static int FUNCTIONID_GLOBAL_GETUPDOWNINFO = 7;
-
-    /// <summary>
-    /// 获取涨跌幅情况
-    /// </summary>
-    public static int FUNCTIONID_GLOBAL_GETSTOCKCODE = 8;
-
-    /// <summary>
-    /// 获取涨跌停信息
-    /// </summary>
-    /// <param name="upDownInfos"></param>
-    /// <returns></returns>
+    
+    /*
+    * 获取涨跌停信息
+    */
     public int getUpDownInfo(ArrayList<String> filterCodes, int n, ArrayList<UpDownInfo> upDownInfos)
     {
         try { int socketID = FCClientService.connectToServer(0, "1.116.142.147", 9959, "", 0, "", "", "", 6000, new byte[]{102,105,110,97});

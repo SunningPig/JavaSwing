@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 
-/**
- *
- * @author taode
- */
+/*
+* 资产信息
+*/
 public class CoinAssetInfo {
     public String m_id;
     public String m_rank;

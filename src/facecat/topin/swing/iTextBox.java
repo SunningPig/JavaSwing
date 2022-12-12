@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facecat.topin.swing;
 import java.util.*;
 
@@ -14,10 +9,13 @@ import facecat.topin.input.*;
 import static facecat.topin.input.FCTextBox.TICK;
 import facecat.topin.scroll.*;
 
+/*
+* 文本框
+*/
 public class iTextBox extends FCDiv {
-    /// <summary>
-    /// 创建视图
-    /// </summary>
+    /*
+    * 创建视图
+    */
     public iTextBox() {
         FCSize size = new FCSize(100, 20);
         setSize(size);
@@ -28,98 +26,96 @@ public class iTextBox extends FCDiv {
 
     public int m_changeID = FCNative.getChangeID();
 
-    /// <summary>
-    /// 点击的高亮信息
-    /// </summary>
+    /*
+    * 点击的高亮信息
+    */
     public HighLightInfo m_clickHighInfo;
 
-    /// <summary>
-    /// 代码高亮信息
-    /// </summary>
+    /*
+    * 代码高亮信息
+    */
     public ArrayList<HighLightInfo> m_highLightInfos = new ArrayList<HighLightInfo>();
 
     public boolean m_isCopy;
 
-    /// <summary>
-    /// 键盘是否按下
-    /// </summary>
+    /*
+    * 键盘是否按下
+    */
     public boolean m_isKeyDown;
 
-    /// <summary>
-    /// 是否触摸按下
-    /// </summary>
+    /*
+    * 是否触摸按下
+    */
     public boolean m_isTouchDown;
 
-    /// <summary>
-    /// 横向偏移量
-    /// </summary>
+    /*
+    * 横向偏移量
+    */
     public int m_offsetX = 0;
 
-    /// <summary>
-    /// 文字矩形范围
-    /// </summary>
+    /*
+    * 文字矩形范围
+    */
     public ArrayList<FCRectF> m_ranges = new ArrayList<FCRectF>();
 
-    /// <summary>
-    /// 重做栈
-    /// </summary>
+    /*
+    * 重做栈
+    */
     public Stack<iFCRedoUndoInfo> m_redoStack = new Stack<iFCRedoUndoInfo>();
 
-    /// <summary>
-    /// 是否显示光标
-    /// </summary>
+    /*
+    * 是否显示光标
+    */
     public boolean m_showCursor = false;
 
-    /// <summary>
-    /// 开始移动的坐标
-    /// </summary>
+    /*
+    * 是否显示光标
+    */
     public int m_startMovingIndex = -1;
 
-    /// <summary>
-    /// 结束移动的坐标
-    /// </summary>
+    /*
+    * 结束移动的坐标
+    */
     public int m_stopMovingIndex = -1;
 
-    /// <summary>
-    /// 文字是否改变
-    /// </summary>
+    /*
+    * 文字是否改变
+    */
     public boolean m_textChanged = false;
 
-    /// <summary>
-    /// 光标闪烁频率
-    /// </summary>
+    /*
+    * 光标闪烁频率
+    */
     public int TICK = 500;
 
-    /// <summary>
-    /// 秒表ID
-    /// </summary>
+    /*
+    * 秒表ID
+    */
     private int m_timerID = getNewTimerID();
 
-    /// <summary>
-    /// 撤销栈
-    /// </summary>
+    /*
+    * 撤销栈
+    */
     public Stack<iFCRedoUndoInfo> m_undoStack = new Stack<iFCRedoUndoInfo>();
 
-    /// <summary>
-    /// 文字大小
-    /// </summary>
+    /*
+    * 文字大小
+    */
     public ArrayList<FCSizeF> m_wordsSize = new ArrayList<FCSizeF>();
 
     private boolean m_alwaysAddEnd;
 
-    /// <summary>
-    /// 是否在尾部追加
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 是否在尾部追加
+    */
     public boolean alwaysAddEnd()
     {
         return m_alwaysAddEnd;
     }
 
-    /// <summary>
-    /// 设置是否总是在尾部追加
-    /// </summary>
-    /// <param name="value"></param>
+    /*
+    * 设置是否总是在尾部追加
+    */
     public void setAlwaysAddEnd(boolean value)
     {
         m_alwaysAddEnd = value;
@@ -127,64 +123,64 @@ public class iTextBox extends FCDiv {
 
     protected FCPoint m_cursorPoint = new FCPoint();
 
-    /// <summary>
-    /// 获取光标位置
-    /// </summary>
+    /*
+    * 获取光标位置
+    */
     public FCPoint getCursorPoint() {
         return m_cursorPoint.clone();
     }
 
-    /// <summary>
-    /// 设置光标位置
-    /// </summary>
+    /*
+    * 设置光标位置
+    */
     public void setCursorPoint(FCPoint value) {
         m_cursorPoint = value.clone();
     }
 
-    /// <summary>
-    /// 获取行数
-    /// </summary>
+    /*
+    * 获取行数
+    */
     public int getLinesCount() {
         return m_lines.size();
     }
 
     public int m_lineHeight = 20;
 
-    /// <summary>
-    /// 获取行高
-    /// </summary>
+    /*
+    * 获取行高
+    */
     public int getLineHeight() {
         return m_lineHeight;
     }
 
-    /// <summary>
-    /// 设置行高
-    /// </summary>
+    /*
+    * 设置行高
+    */
     public void setLineHeight(int value) {
         m_lineHeight = value;
     }
 
     public ArrayList<FCWordLine> m_lines = new ArrayList<FCWordLine>();
 
-    /// <summary>
-    /// 获取所有行
-    /// </summary>
+    /*
+    * 获取所有行
+    */
     public ArrayList<FCWordLine> getLines() {
         return m_lines;
     }
 
     public boolean m_multiline = false;
 
-    /// <summary>
-    /// 获取是否多行显示
-    /// </summary>
+    /*
+    * 获取是否多行显示
+    */
     public boolean isMultiline() {
         return m_multiline;
     }
 
-    /// <summary>
-    /// 设置是否多行显示
-    /// </summary>
+    /*
+    * 设置是否多行显示
+    */
     public void setMultiline(boolean value) {
         if (m_multiline != value) {
             m_multiline = value;
@@ -195,16 +191,16 @@ public class iTextBox extends FCDiv {
 
     public char m_passwordChar;
 
-    /// <summary>
-    /// 获取密码字符
-    /// </summary>
+    /*
+    * 获取密码字符
+    */
     public char getPasswordChar() {
         return m_passwordChar;
     }
 
-    /// <summary>
-    /// 设置密码字符
-    /// </summary>
+    /*
+    * 获取密码字符
+    */
     public void setPasswordChar(char value) {
         m_passwordChar = value;
         m_textChanged = true;
@@ -212,40 +208,40 @@ public class iTextBox extends FCDiv {
 
     public boolean m_readOnly = false;
 
-    /// <summary>
-    /// 获取是否只读
-    /// </summary>
+    /*
+    * 获取是否只读
+    */
     public boolean isReadOnly() {
         return m_readOnly;
     }
 
-    /// <summary>
-    /// 设置是否只读
-    /// </summary>
+    /*
+    * 设置是否只读
+    */
     public void setReadOnly(boolean value) {
         m_readOnly = value;
     }
 
     public boolean m_rightToLeft;
 
-    /// <summary>
-    /// 获取是否从右向左绘制
-    /// </summary>
+    /*
+    * 获取是否从右向左绘制
+    */
     public boolean rightToLeft() {
         return m_rightToLeft;
     }
 
-    /// <summary>
-    /// 设置是否从右向左绘制
-    /// </summary>
+    /*
+    * 设置是否从右向左绘制
+    */
     public void setRightToLeft(boolean value) {
         m_rightToLeft = value;
         m_textChanged = true;
     }
 
-    /// <summary>
-    /// 获取选中的文字
-    /// </summary>
+    /*
+    * 获取选中的文字
+    */
     public String getSelectionText() {
         String text = getText();
         if (text == null) {
@@ -261,64 +257,64 @@ public class iTextBox extends FCDiv {
 
     public long m_selectionBackColor = MyColor.USERCOLOR63;
 
-    /// <summary>
-    /// 获取选中的背景色
-    /// </summary>
+    /*
+    * 获取选中的背景色
+    */
     public long getSelectionBackColor() {
         return m_selectionBackColor;
     }
 
-    /// <summary>
-    /// 设置选中的背景色
-    /// </summary>
+    /*
+    * 设置选中的背景色
+    */
     public void setSelectionBackColor(long value) {
         m_selectionBackColor = value;
     }
 
     public long m_selectionTextColor = MyColor.USERCOLOR3;
 
-    /// <summary>
-    /// 获取选中的文字色
-    /// </summary>
+    /*
+    * 获取选中的文字色
+    */
     public long getSelectionTextColor() {
         return m_selectionTextColor;
     }
 
-    /// <summary>
-    /// 设置选中的文字色
-    /// </summary>
+    /*
+    * 设置选中的文字色
+    */
     public void setSelectionTextColor(long value) {
         m_selectionTextColor = value;
     }
 
     public int m_selectionLength;
 
-    /// <summary>
-    /// 获取选中长度
-    /// </summary>
+    /*
+    * 获取选中长度
+    */
     public int getSelectionLength() {
         return m_selectionLength;
     }
 
-    /// <summary>
-    /// 设置选中长度
-    /// </summary>
+    /*
+    * 设置选中长度
+    */
     public void setSelectionLength(int value) {
         m_selectionLength = value;
     }
 
     public int m_selectionStart = -1;
 
-    /// <summary>
-    /// 获取选中开始位置
-    /// </summary>
+    /*
+    * 获取选中开始位置
+    */
     public int getSelectionStart() {
         return m_selectionStart;
     }
 
-    /// <summary>
-    /// 设置选中开始位置
-    /// </summary>
+    /*
+    * 设置选中开始位置
+    */
     public void setSelectionStart(int value) {
         m_selectionStart = value;
         if (m_selectionStart > getText().length()) {
@@ -328,64 +324,64 @@ public class iTextBox extends FCDiv {
 
     public String m_tempText;
 
-    /// <summary>
-    /// 获取临时文字
-    /// </summary>
+    /*
+    * 获取临时文字
+    */
     public String getTempText() {
         return m_tempText;
     }
 
-    /// <summary>
-    /// 设置临时文字
-    /// </summary>
+    /*
+    * 设置临时文字
+    */
     public void setTempText(String tempText) {
         m_tempText = tempText;
     }
 
     public long m_tempTextColor = FCColor.DisabledText;
 
-    /// <summary>
-    /// 获取临时文字的颜色
-    /// </summary>
+    /*
+    * 设置临时文字
+    */
     public long getTempTextColor() {
         return m_tempTextColor;
     }
 
-    /// <summary>
-    /// 设置临时文字的颜色
-    /// </summary>
+    /*
+    * 设置临时文字的颜色
+    */
     public void setTempTextColor(long tempTextColor) {
         m_tempTextColor = tempTextColor;
     }
 
     public FCHorizontalAlign m_textAlign = FCHorizontalAlign.Left;
 
-    /// <summary>
-    /// 获取内容的横向排列样式
-    /// </summary>
+    /*
+    * 获取内容的横向排列样式
+    */
     public FCHorizontalAlign getTextAlign() {
         return m_textAlign;
     }
 
-    /// <summary>
-    /// 设置内容的横向排列样式
-    /// </summary>
+    /*
+    * 设置内容的横向排列样式
+    */
     public void setTextAlign(FCHorizontalAlign value) {
         m_textAlign = value;
     }
 
     public boolean m_wordWrap = false;
 
-    /// <summary>
-    /// 获取多行编辑视图是否启动换行
-    /// </summary>
+    /*
+    * 获取多行编辑视图是否启动换行
+    */
     public boolean wordWrap() {
         return m_wordWrap;
     }
 
-    /// <summary>
-    /// 设置多行编辑视图是否启动换行
-    /// </summary>
+    /*
+    * 设置多行编辑视图是否启动换行
+    */
     public void setWordWrap(boolean value) {
         if (m_wordWrap != value) {
             m_wordWrap = value;
@@ -394,10 +390,9 @@ public class iTextBox extends FCDiv {
         setShowHScrollBar(!m_wordWrap);
     }
 
-    /// <summary>
-    /// 判断是否可以重复
-    /// </summary>
-    /// <returns>是否可以重复</returns>
+    /*
+    * 判断是否可以重复
+    */
     public boolean canRedo() {
         if (m_redoStack.size() > 0) {
             return true;
@@ -405,10 +400,9 @@ public class iTextBox extends FCDiv {
         return false;
     }
 
-    /// <summary>
-    /// 判断是否可以撤销
-    /// </summary>
-    /// <returns>是否可以撤销</returns>
+    /*
+    * 判断是否可以撤销
+    */
     public boolean canUndo() {
         if (m_undoStack.size() > 0) {
             return true;
@@ -416,17 +410,17 @@ public class iTextBox extends FCDiv {
         return false;
     }
 
-    /// <summary>
-    /// 重置撤销重复
-    /// </summary>
+    /*
+    * 重置撤销重复
+    */
     public void clearRedoUndo() {
         m_undoStack.clear();
         m_redoStack.clear();
     }
     
-    /// <summary>
-    /// 光标向下移动
-    /// </summary>
+    /*
+    * 光标向下移动
+    */
     public void cursorDown()
     {
         FCHost host = getNative().getHost();
@@ -491,9 +485,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 光标移动到最右端
-    /// </summary>
+    /*
+    * 光标移动到最右端
+    */
     public void cursorEnd()
     {
         FCHost host = getNative().getHost();
@@ -534,9 +528,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 光标移动到最左端
-    /// </summary>
+    /*
+    * 光标移动到最左端
+    */
     public void cursorHome()
     {
         FCHost host = getNative().getHost();
@@ -577,9 +571,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 光标向左移动
-    /// </summary>
+    /*
+    * 光标向左移动
+    */
     public void cursorLeft()
     {
         FCHost host = getNative().getHost();
@@ -605,9 +599,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 光标向右移动
-    /// </summary>
+    /*
+    * 光标向右移动
+    */
     public void cursorRight()
     {
         FCHost host = getNative().getHost();
@@ -638,9 +632,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 光标向上移动
-    /// </summary>
+    /*
+    * 光标向上移动
+    */
     public void cursorUp()
     {
         FCHost host = getNative().getHost();
@@ -705,9 +699,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 删除字符
-    /// </summary>
+    /*
+    * 删除字符
+    */
     public void deleteWord() {
         String text = getText();
         if (text == null) {
@@ -776,9 +770,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 销毁方法
-    /// </summary>
+    /*
+    * 销毁方法
+    */
     public void delete() {
         if (!isDeleted()) {
             stopTimer(m_timerID);
@@ -791,10 +785,9 @@ public class iTextBox extends FCDiv {
         super.delete();
     }
 
-    /// <summary>
-    /// 获取内容的高度
-    /// </summary>
-    /// <returns>高度</returns>
+    /*
+    * 获取内容的高度
+    */
     public int getContentHeight() {
         int hmax = super.getContentHeight();
         int cheight = 0;
@@ -808,10 +801,9 @@ public class iTextBox extends FCDiv {
         return contentHeight + getNative().getSize().cy / 2;
     }
 
-    /// <summary>
-    /// 获取内容的宽度
-    /// </summary>
-    /// <returns>宽度</returns>
+    /*
+    * 获取内容的宽度
+    */
     public int getContentWidth() {
         int wmax = super.getContentWidth();
         int cwidth = 0;
@@ -829,20 +821,16 @@ public class iTextBox extends FCDiv {
         return wmax > cwidth ? wmax : cwidth;
     }
 
-    /// <summary>
-    /// 获取视图类型
-    /// </summary>
-    /// <returns>视图类型</returns>
+    /*
+    * 获取视图类型
+    */
     public String getViewType() {
         return "TextBox";
     }
 
-    /// <summary>
-    /// 获取属性值
-    /// </summary>
-    /// <param name="name">属性名称</param>
-    /// <param name="value">返回属性值</param>
-    /// <param name="type">返回属性类型</param>
+    /*
+    * 获取属性值
+    */
     public void getAttribute(String name, RefObject<String> value, RefObject<String> type) {
         if (name.equals("lineheight")) {
             type.argvalue = "int";
@@ -882,10 +870,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 获取属性名称列表
-    /// </summary>
-    /// <returns>属性名称列表</returns>
+    /*
+    * 获取属性名称列表
+    */
     public ArrayList<String> getAttributeNames() {
         ArrayList<String> attributeNames = super.getAttributeNames();
         attributeNames.addAll(Arrays.asList(new String[]{"LineHeight", "Multiline", "PasswordChar", "ReadOnly", "RightToLeft", "SelectionBackColor", "SelectionTextColor", "TempText", "TempTextColor", "TextAlign", "WordWrap"}));
@@ -936,10 +923,9 @@ public class iTextBox extends FCDiv {
         return false;
     }
 
-    /// <summary>
-    /// 插入字符
-    /// </summary>
-    /// <param name="str">字符串</param>
+    /*
+    * 插入字符
+    */
     public void insertWord2(String str) {
         int oldLines = m_lines.size();
         iFCRedoUndoInfo newReoUndoInfo = new iFCRedoUndoInfo(getText(), getSelectionStart(), getSelectionLength(), 0);
@@ -954,6 +940,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
+    /*
+    * 插入字符
+    */
     public void insertWord3(String str){
         int oldLines = m_lines.size();
         iFCRedoUndoInfo newReoUndoInfo = new iFCRedoUndoInfo(getText(), getSelectionStart(), getSelectionLength(), 0);
@@ -967,6 +956,9 @@ public class iTextBox extends FCDiv {
         invalidate();
     }
 
+    /*
+    * 设置字符
+    */
     public void setText2(String str){
         m_text = str;
     }
@@ -1088,9 +1080,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 复制文字
-    /// </summary>
+    /*
+    * 复制文字
+    */
     public void onCopy() {
         String selectionText = getSelectionText();
         if (selectionText != null && selectionText.length() > 0) {
@@ -1100,9 +1092,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 剪切
-    /// </summary>
+    /*
+    * 剪切
+    */
     public void onCut() {
         if (!m_readOnly) {
             onCopy();
@@ -1131,9 +1123,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 获取焦点方法
-    /// </summary>
+    /*
+    * 获取焦点方法
+    */
     public void onGotFocus() {
         super.onGotFocus();
         m_showCursor = true;
@@ -1141,9 +1133,9 @@ public class iTextBox extends FCDiv {
         startTimer(m_timerID, TICK);
     }
 
-    /// <summary>
-    /// 丢失焦点方法
-    /// </summary>
+    /*
+    * 丢失焦点方法
+    */
     public void onLostFocus() {
         super.onLostFocus();
         stopTimer(m_timerID);
@@ -1152,10 +1144,9 @@ public class iTextBox extends FCDiv {
         invalidate();
     }
 
-    /// <summary>
-    /// 触摸按下方法
-    /// </summary>
-    /// <param name="touchInfo">触摸信息</param>
+    /*
+    * 触摸按下方法
+    */
     public void onTouchDown(FCTouchInfo touchInfo) {
         super.onTouchDown(touchInfo);
         if(wordWrap() && allowDragScroll()){
@@ -1284,10 +1275,9 @@ public class iTextBox extends FCDiv {
         invalidate();
     }
 
-    /// <summary>
-    /// 触摸移动方法
-    /// </summary>
-    /// <param name="touchInfo">触摸信息</param>
+    /*
+    * 触摸移动方法
+    */
     public void onTouchMove(FCTouchInfo touchInfo) {
         super.onTouchMove(touchInfo);
         FCPoint mp = touchInfo.m_firstPoint;
@@ -1479,11 +1469,10 @@ public class iTextBox extends FCDiv {
         }
         return false;
     }
-
-    /// <summary>
-    /// 触摸抬起方法
-    /// </summary>
-    /// <param name="touchInfo">触摸信息</param>
+    
+    /*
+    * 触摸抬起方法
+    */
     public void onTouchUp(FCTouchInfo touchInfo) {
         m_isTouchDown = false;
         super.onTouchUp(touchInfo);
@@ -1511,11 +1500,17 @@ public class iTextBox extends FCDiv {
 
     private boolean m_showZoom;
 
+    /*
+    * 显示缩放
+    */
     public boolean showZoom()
     {
         return m_showZoom;
     }
 
+    /*
+    * 设置显示缩放
+    */
     public void setShowZoom(boolean value){
         m_showZoom = value;
         if (value)
@@ -1557,11 +1552,17 @@ public class iTextBox extends FCDiv {
 
     private boolean m_allowPaint = true;
 
+    /*
+    * 允许绘图
+    */
     public boolean allowPaint()
     {
         return m_allowPaint;
     }
 
+    /*
+    * 设置允许绘图
+    */
     public void setAllowPaint(boolean value) {
         m_allowPaint = value;
     }
@@ -1570,10 +1571,9 @@ public class iTextBox extends FCDiv {
 
     public int m_style = MyColor.m_style;
     
-     /// <summary>
-    /// 文本输入方法
-    /// </summary>
-    /// <param name="ch">文字</param>
+    /*
+    * 文本输入方法
+    */
     public void onChar(char ch)
     {
         if (!m_readOnly)
@@ -1633,10 +1633,9 @@ public class iTextBox extends FCDiv {
         }
     }
     
-    /// <summary>
-    /// 键盘方法
-    /// </summary>
-    /// <param name="key">按键</param>
+    /*
+    * 键盘方法
+    */
     public void onKeyDown(char key)
     {
         m_isKeyDown = true;
@@ -1763,10 +1762,9 @@ public class iTextBox extends FCDiv {
         invalidate();
     }
 
-    /// <summary>
-    /// 键盘抬起方法
-    /// </summary>
-    /// <param name="key">按键</param>
+    /*
+    * 键盘抬起方法
+    */
     public void onKeyUp(char key)
     {
         super.onKeyUp(key);
@@ -1779,6 +1777,9 @@ public class iTextBox extends FCDiv {
         m_isKeyDown = false;
     }
 
+    /*
+    * 绘制背景方法
+    */
     public void onPaintBackground(FCPaint paint, FCRect clipRect)
     {
         FCRect rect = new FCRect(0, 0, getWidth(), getHeight());
@@ -1806,11 +1807,9 @@ public class iTextBox extends FCDiv {
 
     private HashMap<Character, FCSizeF> m_textSizes = new HashMap<Character, FCSizeF>();
 
-    /// <summary>
-    /// 重绘前景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘前景方法
+    */
     public void onPaintForeground(FCPaint paint, FCRect clipRect) {
         if (!m_allowPaint)
         {
@@ -2384,9 +2383,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 粘贴方法
-    /// </summary>
+    /*
+    * 粘贴方法
+    */
     public void onPaste() {
         if (!m_readOnly) {
             FCHost host = getNative().getHost();
@@ -2434,9 +2433,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 被使用TAB切换方法
-    /// </summary>
+    /*
+    * 被使用TAB切换方法
+    */
     public void onTabStop() {
         super.onTabStop();
         if (!m_multiline) {
@@ -2452,9 +2451,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 尺寸改变时触发
-    /// </summary>
+    /*
+    * 尺寸改变时触发
+    */
     public void onSizeChanged() {
         super.onSizeChanged();
         if (m_wordWrap) {
@@ -2463,9 +2462,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 文字改变方法
-    /// </summary>
+    /*
+    * 文字改变方法
+    */
     public void onTextChanged() {
         m_textChanged = true;
         if (m_autoHighLightType.equals("Python"))
@@ -2475,10 +2474,9 @@ public class iTextBox extends FCDiv {
         super.onTextChanged();
     }
 
-    /// <summary>
-    /// 秒表回调方法
-    /// </summary>
-    /// <param name="timerID">秒表ID</param>
+    /*
+    * 秒表回调方法
+    */
     public void onTimer(int timerID)
     {
         super.onTimer(timerID);
@@ -2492,10 +2490,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 重复
-    /// </summary>
-    /// <returns>重复命令</returns>
+    /*
+    * 重复
+    */
     public void redo()
     {
         if (canRedo())
@@ -2509,9 +2506,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 全选
-    /// </summary>
+    /*
+    * 全选
+    */
     public void selectAll() {
         m_selectionStart = 0;
         if (getText() != null)
@@ -2523,11 +2520,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 设置移动索引
-    /// </summary>
-    /// <param name="sIndex">开始索引</param>
-    /// <param name="eIndex">结束索引</param>
+    /*
+    * 设置移动索引
+    */
     private void setMovingIndex(int sIndex, int eIndex) {
         int textSize = getText().length();
         if (textSize > 0) {
@@ -2550,11 +2545,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 设置属性
-    /// </summary>
-    /// <param name="name">属性名称</param>
-    /// <param name="value">属性值</param>
+    /*
+    * 设置属性
+    */
     public void setAttribute(String name, String value) {
         if (name.equals("lineheight")) {
             setLineHeight(FCTran.strToInt(value));
@@ -2583,10 +2576,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 撤销
-    /// </summary>
-    /// <returns>撤销命令</returns>
+    /*
+    * 撤销
+    */
     public void undo() {
         if (canUndo())
         {
@@ -2602,9 +2594,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 更新布局方法
-    /// </summary>
+    /*
+    * 更新布局方法
+    */
     public void update() {
         FCNative inative = getNative();
         if (inative != null) {
@@ -2628,9 +2620,9 @@ public class iTextBox extends FCDiv {
         super.update();
     }
 
-    /// <summary>
-    /// 显示查找
-    /// </summary>
+    /*
+    * 显示查找
+    */
     public void showFind()
     {
         if (m_findReplaceDiv != null)
@@ -2658,9 +2650,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 显示替换
-    /// </summary>
+    /*
+    * 显示替换
+    */
     public void showReplace()
     {
         if (m_findReplaceDiv != null)
@@ -2679,9 +2671,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 系统颜色
-    /// </summary>
+    /*
+    * 系统颜色
+    */
     public long[] m_sysColors = new long[] {MyColor.USERCOLOR48,
             FCColor.rgb(102, 108, 122),
             MyColor.USERCOLOR88,
@@ -2692,12 +2684,9 @@ public class iTextBox extends FCDiv {
             FCColor.rgb(244, 163, 60),
             MyColor.USERCOLOR53 };
 
-    /// <summary>
-    /// 调用方法
-    /// </summary>
-    /// <param name="funcName"></param>
-    /// <param name="parameters"></param>
-    /// <returns></returns>
+    /*
+    * 调用方法
+    */
     public String callFunction(String funcName, String parameters) {
         String lowerName = funcName.toLowerCase();
         if (lowerName.equals("getcelltext")) {
@@ -2719,6 +2708,9 @@ public class iTextBox extends FCDiv {
     public boolean m_isClickDown;
     public FCPoint m_touchDownPoint = new FCPoint();
 
+    /*
+    * 删除选中
+    */
     public void deleteSelect(){
         if (!m_readOnly)
         {
@@ -2747,10 +2739,9 @@ public class iTextBox extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 获取正在输入的高亮信息
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 获取正在输入的高亮信息
+    */
     public HighLightInfo getInputingHightLight()
     {
         HighLightInfo highLightInfo = new HighLightInfo();
@@ -2771,6 +2762,9 @@ public class iTextBox extends FCDiv {
 
     public FCGrid m_autoCompleteGrid;
 
+    /*
+    * 开始代码补全
+    */
     public void startAutoComplete()
     {
     }

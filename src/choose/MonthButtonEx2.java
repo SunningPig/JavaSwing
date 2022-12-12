@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package choose;
 
 import java.util.ArrayList;
@@ -12,24 +7,27 @@ import facecat.topin.core.*;
 import facecat.topin.date.*;
 import facecat.topin.swing.*;
 
+/*
+* 月的按钮
+*/
 public class MonthButtonEx2 extends MonthButton {
-    /// <summary>
-    /// 创建按钮
-    /// </summary>
-    /// <param name="calendar"></param>
+    /*
+    * 构造函数
+    */
     public MonthButtonEx2(FCCalendar calendar)
     {
         super(calendar);
         m_calendarEx = (FCCalendarEx2)calendar;
     }
 
+    /*
+    * 日历
+    */
     private FCCalendarEx2 m_calendarEx;
 
-    /// <summary>
-    /// 重绘背景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘背景方法
+    */
     public void onPaintBackGround(FCPaint paint, FCRect clipRect)
     {
         if (m_bounds.right - m_bounds.left > 0)
@@ -44,11 +42,9 @@ public class MonthButtonEx2 extends MonthButton {
         }
     }
 
-    /// <summary>
-    /// 重绘边线方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘边线方法
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
         long borderColor = getPaintingBorderColor();
@@ -56,11 +52,9 @@ public class MonthButtonEx2 extends MonthButton {
         //paint.drawLine(borderColor, 1, 0, m_bounds.right - 1, m_bounds.top, m_bounds.right - 1, m_bounds.bottom - 1);
     }
 
-    /// <summary>
-    /// 重绘前景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘前景方法
+    */
     public void onPaintForeground(FCPaint paint, FCRect clipRect)
     {
         int width = m_bounds.right - m_bounds.left;

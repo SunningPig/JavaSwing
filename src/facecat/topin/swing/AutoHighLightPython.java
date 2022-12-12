@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facecat.topin.swing;
 import java.util.ArrayList;
 import java.util.HashMap;
 import facecat.topin.core.FCColor;
 import facecat.topin.core.FCPadding;
 
+/*
+* Python代码的高亮处理
+*/
 public class AutoHighLightPython {
     public static HashMap<String, String> m_jsKeyWords = new HashMap<String, String>();
 
@@ -20,6 +18,9 @@ public class AutoHighLightPython {
 
     public static long[] m_pySysColors;
 
+    /*
+    * 处理方法
+    */
     public static void analysis(iTextBox txtCode) {
         try {
             if (MyColor.m_style == 1) {

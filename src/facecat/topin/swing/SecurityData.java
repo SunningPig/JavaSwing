@@ -1,55 +1,47 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
-/**
- *
- * @author taode
- */
+/*
+* 证券数据
+*/
 public class SecurityData {
-            /// <summary>
-        /// 收盘价
-        /// </summary>
+        /*
+        * 收盘价
+        */
         public double m_close;
 
-        /// <summary>
-        /// 日期
-        /// </summary>
+        /*
+        * 日期
+        */
         public double m_date;
 
-        /// <summary>
-        /// 最高价
-        /// </summary>
+        /*
+        * 最高价
+        */
         public double m_high;
 
-        /// <summary>
-        /// 最低价
-        /// </summary>
+        /*
+        * 最低价
+        */
         public double m_low;
 
-        /// <summary>
-        /// 开盘价
-        /// </summary>
+        /*
+        * 开盘价
+        */
         public double m_open;
 
-        /// <summary>
-        /// 成交量
-        /// </summary>
+        /*
+        * 成交量
+        */
         public double m_volume;
 
-        /// <summary>
-        /// 成交额
-        /// </summary>
+        /*
+        * 成交额
+        */
         public double m_amount;
 
-        /// <summary>
-        /// 复制数据
-        /// </summary>
-        /// <param name="data">数据</param>
+        /*
+        * 复制数据
+        */
         public void copy(SecurityData data) {
             m_close = data.m_close;
             m_date = data.m_date;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 
 import java.io.BufferedReader;
@@ -12,16 +7,13 @@ import java.net.URLConnection;
 import java.util.*;
 import facecat.topin.core.*;
 
-/**
- *
- * @author taode
- */
+/*
+* 数据服务
+*/
 public class CoinCapService {
-    /// <summary>
-    /// 获取网页数据
-    /// </summary>
-    /// <param name="url">地址</param>
-    /// <returns>页面源码</returns>
+    /*
+    * 获取网页数据
+    */
     public static String get(String url)
     {
         String result = "";
@@ -55,6 +47,9 @@ public class CoinCapService {
         return result;
     }
 
+    /*
+    * 获取市场信息
+    */
     //api.coincap.io/v2/assets/bitcoin/history?interval=d1
     public static ArrayList<CoinMarketInfo> getMarketInfos(String exchangeID, String currentPari) {
         ArrayList<CoinMarketInfo> datas = new ArrayList<CoinMarketInfo>();
@@ -157,6 +152,9 @@ public class CoinCapService {
         return datas;
     }
 
+    /*
+    * 获取交易所信息
+    */
     public static ArrayList<CoinExchangeInfo> getExchangeInfos() {
         ArrayList<CoinExchangeInfo> datas = new ArrayList<CoinExchangeInfo>();
         String url = "https://api.coincap.io/v2/exchanges?limit=2000";
@@ -232,6 +230,9 @@ public class CoinCapService {
         return datas;
     }
 
+    /*
+    * 获取占比信息
+    */
     public static ArrayList<CoinRateInfo> getRateInfos()
     {
         ArrayList<CoinRateInfo> datas = new ArrayList<CoinRateInfo>();
@@ -293,6 +294,9 @@ public class CoinCapService {
         return datas;
     }
 
+    /*
+    * 获取多个资产信息
+    */
     public static ArrayList<CoinAssetInfo> getAssetInfos() {
         ArrayList<CoinAssetInfo> datas = new ArrayList<CoinAssetInfo>();
         String url = "https://api.coincap.io/v2/assets?limit=2000";
@@ -381,7 +385,9 @@ public class CoinCapService {
         return datas;
     }
 
-
+    /*
+    * 获取多个资产信息
+    */
     //String url = String.Format("https://api.coincap.io/v2/candles?exchange=poloniex&interval={0}&baseId=ethereum&quoteId=bitcoin", interval);
     public static ArrayList<CoinSecurityData> getCoinSecurityDatas(String exchange, String interval, String baseId, String quoteId) {
         ArrayList<CoinSecurityData> datas = new ArrayList<CoinSecurityData>();

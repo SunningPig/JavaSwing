@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import facecat.topin.core.*;
@@ -13,10 +7,12 @@ import facecat.topin.scroll.*;
 import facecat.topin.tab.*;
 import java.util.*;
 
+/*
+* 分割按钮
+*/
 public class SplitterButton  extends FCButton {
-    /**
-     创建透明按钮
-
+    /*
+     * 创建透明按钮
      */
     public SplitterButton()
     {
@@ -24,12 +20,12 @@ public class SplitterButton  extends FCButton {
         setBorderColor(FCColor.None);
     }
 
-    /**
+    /*
      * 状态
      */
     private int m_status = 0;
 
-    /**
+    /*
      *获取状态
      * @return
      */
@@ -38,7 +34,7 @@ public class SplitterButton  extends FCButton {
         return m_status;
     }
 
-    /**
+    /*
      * 设置状态
      * @param status
      */
@@ -47,9 +43,8 @@ public class SplitterButton  extends FCButton {
         m_status = status;
     }
 
-    /**
+    /*
      重绘背景
-
      @param paint 绘图对象
      @param clipRect 裁剪区域
      */

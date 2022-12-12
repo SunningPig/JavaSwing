@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 import java.util.*;
@@ -15,124 +10,127 @@ import org.w3c.dom.NodeList;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-/// <summary>
-/// 坦克大战
-/// </summary>
+/*
+* 坦克大战
+*/
 public class TankWar extends FCView {
-    /// <summary>
-    /// 创建战场
-    /// </summary>
+    /*
+    * 创建战场
+    */
     public TankWar() {
         setBackColor(FCColor.rgba(0, 0, 0, 255));
     }
 
-    /// <summary>
-    /// GameOver 图片
-    /// </summary>
+    /*
+    * GameOver 图片
+    */
     private String m_gameOverTexture;
 
-    /// <summary>
-    /// 游戏层
-    /// </summary>
+    /*
+    * 游戏层
+    */
     public PlayTank m_play;
 
-    /// <summary>
-    /// 子弹集合
-    /// </summary>
+    /*
+    * 子弹集合
+    */
     private ArrayList<TankMissile> m_missileList = new ArrayList<TankMissile>();
 
-    /// <summary>
-    /// 爆炸列表
-    /// </summary>
+    /*
+    * 爆炸列表
+    */
     private ArrayList<TankBlast> m_tankBlastList = new ArrayList<TankBlast>();
 
-    /// <summary>
-    /// 秒表ID
-    /// </summary>
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
-    /// <summary>
-    /// 获取弹幕图片
-    /// </summary>
+    /*
+    * 获取弹幕图片
+    */
     public HashMap<BarrierTypeEnum, String> m_barrierImgs = new HashMap<BarrierTypeEnum, String>();
 
-    /// <summary>
-    /// 获取或设置子弹图片
-    /// </summary>
+    /*
+    * 获取或设置子弹图片
+    */
     public String m_bulletImgs = "";
 
-    /// <summary>
-    /// 获取或设置基地
-    /// </summary>
+    /*
+    * 获取或设置基地
+    */
     public TankEagle m_eagle;
 
-    /// <summary>
-    /// 获取或设置敌方坦克
-    /// </summary>
+    /*
+    * 获取或设置敌方坦克
+    */
     public ArrayList<EnemyTank> m_enemyTanks = new ArrayList<EnemyTank>();
 
-    /// <summary>
-    /// 获取或设置敌人坦克是否停止
-    /// </summary>
+    /*
+    * 获取或设置敌人坦克是否停止
+    */
     public boolean m_enemyTankStop = true;
 
-    /// <summary>
-    /// 获取或设置是否击中基地
-    /// </summary>
+    /*
+    * 获取或设置是否击中基地
+    */
     public boolean m_hitEagle;
 
-    /// <summary>
-    /// 获取或设置是否有时间偷取
-    /// </summary>
+    /*
+    * 获取或设置是否有时间偷取
+    */
     public boolean m_isSteel = false;
 
-    /// <summary>
-    /// 获取或设置需要绘图的集合
-    /// </summary>
+    /*
+    * 获取或设置需要绘图的集合
+    */
     public ArrayList<BaseItem> m_items = new ArrayList<BaseItem>();
 
-    /// <summary>
-    /// 获取或设置项的尺寸
-    /// </summary>
+    /*
+    * 获取或设置项的尺寸
+    */
     public FCSize m_itemSize = new FCSize(40, 40);
 
-    /// <summary>
-    /// 获取或设置生命
-    /// </summary>
+    /*
+    * 获取或设置生命
+    */
     public int m_life = 3;
 
-    /// <summary>
-    /// 获取或设置我的坦克
-    /// </summary>
+    /*
+    * 获取或设置我的坦克
+    */
     public MyTank m_myTank;
 
-    /// <summary>
-    /// 获取或设置我的坦克是否停止
-    /// </summary>
+    /*
+    * 获取或设置我的坦克是否停止
+    */
     public boolean m_myTankStop;
 
-    /// <summary>
-    /// 获取或设置分数
-    /// </summary>
+    /*
+    * 获取或设置分数
+    */
     public int m_score;
 
-    /// <summary>
-    /// 获取或设置护盾图片
-    /// </summary>
+    /*
+    * 获取或设置护盾图片
+    */
     public String m_shieldImg = "";
 
-    /// <summary>
-    /// 获取皮肤图片
-    /// </summary>
+    /*
+    * 获取皮肤图片
+    */
     public HashMap<TreasureTypeEnum, String> m_treasureImgs = new HashMap<TreasureTypeEnum, String>();
     
+    /*
+    * 获取当前路径
+    */
     public static String getCurrentPath(){
         return System.getProperty("user.dir");
     }
 
-    /// <summary>
-    /// 添加我的坦克
-    /// </summary>
+    /*
+    * 添加我的坦克
+    */
     private void addMyTank() {
         if (m_life > 0) {
             if (m_myTank == null) {
@@ -149,9 +147,9 @@ public class TankWar extends FCView {
         }
     }
 
-    /// <summary>
-    /// 添加敌方坦克
-    /// </summary>
+    /*
+    * 添加敌方坦克
+    */
     private void addEnemyTank() {
         String currentPath = getCurrentPath();
         try {
@@ -249,9 +247,9 @@ public class TankWar extends FCView {
         } 
     }
 
-    /// <summary>
-    /// 修改游戏状态
-    /// </summary>
+    /*
+    * 修改游戏状态
+    */
     public void changeState()
     {
         m_play.bringToFront();
@@ -276,9 +274,9 @@ public class TankWar extends FCView {
         getNative().invalidate();
     }
 
-    /// <summary>
-    /// 检查游戏状态
-    /// </summary>
+    /*
+    * 检查游戏状态
+    */
     private boolean checkGameStatus() {
         boolean gameOver = false;
         if (m_life == 0 || m_hitEagle) {
@@ -287,19 +285,18 @@ public class TankWar extends FCView {
         return gameOver;
     }
 
-    /// <summary>
-    /// 添加控件方法
-    /// </summary>
+    /*
+    * 添加控件方法
+    */
     public void onAdd() {
         super.onAdd();
         //添加图片
         loadItems();
     }
 
-    /// <summary>
-    /// 键盘方法
-    /// </summary>
-    /// <param name="key">按键</param>
+    /*
+    * 键盘方法
+    */
     public void onKeyDown(char key) {
         super.onKeyDown(key);
         if (m_play != null) {
@@ -307,9 +304,9 @@ public class TankWar extends FCView {
         }
     }
 
-    /// <summary>
-    /// 销毁资源
-    /// </summary>
+    /*
+    * 销毁资源
+    */
     public void delete() {
         if (!isDeleted()) {
             onRemove();
@@ -317,9 +314,9 @@ public class TankWar extends FCView {
         super.delete();
     }
 
-    /// <summary>
-    /// 加载元素
-    /// </summary>
+    /*
+    * 加载元素
+    */
     private void loadItems() {
         if (m_treasureImgs.size() == 0)
         {
@@ -416,10 +413,9 @@ public class TankWar extends FCView {
         }
     }
 
-    /// <summary>
-    /// 秒表回调函数
-    /// </summary>
-    /// <param name="timerID"></param>
+    /*
+    * 秒表回调函数
+    */
     public void onTimer(int timerID) {
         callTimerEvents(FCEventID.Timer, timerID);
         if (m_timerID == timerID) {
@@ -433,9 +429,9 @@ public class TankWar extends FCView {
         }
     }
 
-    /// <summary>
-    /// 删除元素
-    /// </summary>
+    /*
+    * 删除元素
+    */
     public void onRemove() {
         m_eagle = null;
         m_myTank = null;
@@ -468,9 +464,9 @@ public class TankWar extends FCView {
         super.onRemove();
     }
 
-    /// <summary>
-    /// 更新战场
-    /// </summary>
+    /*
+    * 更新战场
+    */
     public void updateWar() {
         if (getNative() != null) {
             ArrayList<BaseItem> itemsAddList = new ArrayList<BaseItem>();

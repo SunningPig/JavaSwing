@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 import facecat.topin.core.*;
 import facecat.topin.div.*;
@@ -10,33 +5,28 @@ import facecat.topin.grid.*;
 import facecat.topin.swing.*;
 import java.util.*;
 
-/// <summary>
-/// 内容层
-/// </summary>
+/*
+* 内容层
+*/
 public class CoinContentDiv extends FCDiv implements FCGridCellTouchEventCallBack
 {
-    /// <summary>
-    /// 表格
-    /// </summary>
+    /*
+    * 表格
+    */
     public FCGrid m_gridInfos;
 
-    /// <summary>
-    /// 图形
-    /// </summary>
+    /*
+    * 图形
+    */
     public CoinChartDiv m_myChartDiv;
 
     public PyButtonDiv m_pyButton;
 
     public CoinMainFrame m_mainFrame;
 
-    /// <summary>
-    /// 单元格点击事件
-    /// </summary>
-    /// <param name="eventName"></param>
-    /// <param name="sender"></param>
-    /// <param name="cell"></param>
-    /// <param name="touchInfo"></param>
-    /// <param name="invoke"></param>
+    /*
+    * 单元格点击事件
+    */
     public void callGridCellTouchEvent(String eventName, Object sender, FCGridCell cell, FCTouchInfo touchInfo, Object invoke)
     {
         if (eventName.equals("ongridcellclick"))
@@ -90,14 +80,14 @@ public class CoinContentDiv extends FCDiv implements FCGridCellTouchEventCallBac
         }
     }
 
-    /// <summary>
-    /// 秒表ID
-    /// </summary>
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
-    /// <summary>
-    /// 加载数据
-    /// </summary>
+    /*
+    * 加载数据
+    */
     public void loadData()
     {
         if(m_gridInfos!=null){
@@ -111,10 +101,9 @@ public class CoinContentDiv extends FCDiv implements FCGridCellTouchEventCallBac
         }
     }
 
-    /// <summary>
-    /// 查找数据
-    /// </summary>
-    /// <param name="text"></param>
+    /*
+    * 查找数据
+    */
     public void searchData(String text)
     {
         long[] cellColors = new long[] { FCColor.rgb(80, 255, 255), FCColor.rgb(255, 255, 80),

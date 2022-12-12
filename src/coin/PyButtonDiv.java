@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 import facecat.topin.core.*;
 import facecat.topin.div.*;
@@ -11,25 +6,21 @@ import facecat.topin.swing.*;
 import facecat.topin.grid.*;
 import java.util.*;
 
-/// <summary>
-/// 执行按钮
-/// </summary>
+/*
+* 执行按钮
+*/
 public class PyButtonDiv extends FCButton {
-    /// <summary>
-    /// 是否包含点
-    /// </summary>
-    /// <param name="point"></param>
-    /// <returns></returns>
+    /*
+    * 是否包含点
+    */
     public boolean containsPoint(FCPoint point)
     {
         return false;
     }
 
-    /// <summary>
-    /// 重绘方法
-    /// </summary>
-    /// <param name="paint"></param>
-    /// <param name="clipRect"></param>
+    /*
+    * 重绘方法
+    */
     public void onPaint(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth(), height = getHeight();
@@ -152,20 +143,19 @@ public class PyButtonDiv extends FCButton {
         paint.drawLine(MyColor.USERCOLOR8, 1, 0, drawRect.left, drawRect.bottom, drawRect.right, drawRect.bottom);
     }
 
-    /// <summary>
-    /// 单元格
-    /// </summary>
+    /*
+    * 单元格
+    */
     public FCGridViewCell m_cell;
 
-    /// <summary>
-    /// 计时器
-    /// </summary>
+    /*
+    * 计时器
+    */
     public int m_tick = 0;
 
-    /// <summary>
-    /// 点击方法
-    /// </summary>
-    /// <param name="touchInfo"></param>
+    /*
+    * 点击方法
+    */
     public void onClick(FCTouchInfo touchInfo)
     {
         super.onClick(touchInfo);
@@ -173,15 +163,14 @@ public class PyButtonDiv extends FCButton {
         startTimer(m_timerID, 10);
     }
 
-    /// <summary>
-    /// 秒表ID
-    /// </summary>
+    /*
+    * 秒表ID
+    */
     private int m_timerID = FCView.getNewTimerID();
 
-    /// <summary>
-    /// 秒表方法
-    /// </summary>
-    /// <param name="timerID"></param>
+    /*
+    * 秒表方法
+    */
     public void onTimer(int timerID)
     {
         super.onTimer(timerID);
@@ -199,11 +188,9 @@ public class PyButtonDiv extends FCButton {
         }
     }
 
-    /// <summary>
-    /// 重绘边框方法
-    /// </summary>
-    /// <param name="paint"></param>
-    /// <param name="clipRect"></param>
+    /*
+    * 重绘边框方法
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
     }
@@ -212,9 +199,9 @@ public class PyButtonDiv extends FCButton {
 
     public CoinMainFrame m_mainFrame;
 
-    /// <summary>
-    /// 隐藏内容
-    /// </summary>
+    /*
+    * 隐藏内容
+    */
     public void hideContent()
     {
         if (m_contentDiv != null)
@@ -224,9 +211,9 @@ public class PyButtonDiv extends FCButton {
         }
     }
 
-    /// <summary>
-    /// 添加内容
-    /// </summary>
+    /*
+    * 添加内容
+    */
     public void addContent(int type)
     {
         if (m_contentDiv == null)

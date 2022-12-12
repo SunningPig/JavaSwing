@@ -35,6 +35,9 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/*
+* 程序入口
+*/
 class sshToolInterface
 {
 	//Frame
@@ -42,6 +45,9 @@ class sshToolInterface
         
         private FCUIView m_view = new FCUIView();
         
+        /*
+        * 创建Swing
+        */
 	public sshToolInterface() 
 	{
             FCSize windowSize = new FCSize(1000, 800);

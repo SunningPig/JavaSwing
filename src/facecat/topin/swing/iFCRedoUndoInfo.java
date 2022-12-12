@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facecat.topin.swing;
 
-/**
- *
- * @author taode
- */
+/*
+* 重置撤销
+*/
 public class iFCRedoUndoInfo {
-    /// <summary>
-    /// 创建信息
-    /// </summary>
+    /*
+    * 创建信息
+    */
     public iFCRedoUndoInfo(String text, int selectionStart, int selectionLength, double time)
     {
         m_text = text;
@@ -21,23 +15,23 @@ public class iFCRedoUndoInfo {
         m_time = time;
     }
 
-    /// <summary>
-    /// 选中开始位置
-    /// </summary>
+    /*
+    * 选中开始位置
+    */
     public int m_selectionStart = -1;
 
-    /// <summary>
-    /// 选中长度
-    /// </summary>
+    /*
+    * 选中长度
+    */
     public int m_selectionLength = 0;
 
-    /// <summary>
-    /// 文字
-    /// </summary>
+    /*
+    * 文字
+    */
     public String m_text = "";
 
-    /// <summary>
-    /// 时间戳
-    /// </summary>
+    /*
+    * 时间戳
+    */
     public double m_time;
 }

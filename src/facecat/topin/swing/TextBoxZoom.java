@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facecat.topin.swing;
 import facecat.topin.core.*;
 import facecat.topin.div.*;
@@ -10,7 +5,13 @@ import facecat.topin.input.*;
 import facecat.topin.scroll.*;
 import java.util.*;
 
+/*
+* 文本框缩放
+*/
 public class TextBoxZoom extends FCDiv {
+    /*
+    * 构造函数
+    */
     public TextBoxZoom()
     {
         setAllowPreviewsEvent(true);
@@ -21,19 +22,17 @@ public class TextBoxZoom extends FCDiv {
 
     public iTextBox m_iTextBox;
 
-    /// <summary>
-    /// 是否跟随滚动条
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 是否跟随滚动条
+    */
     public boolean displayOffset()
     {
         return false;
     }
 
-    /// <summary>
-    /// 获取内容高度
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 获取内容高度
+    */
     public int getContentHeight()
     {
         if (m_iTextBox != null)
@@ -58,6 +57,9 @@ public class TextBoxZoom extends FCDiv {
         }
     }
 
+    /*
+    * 显示或隐藏
+    */
     public void showOrHide()
     {
         if (isVisible())
@@ -80,10 +82,9 @@ public class TextBoxZoom extends FCDiv {
         m_iTextBox.invalidate();
     }
 
-    /// <summary>
-    /// 键盘按下
-    /// </summary>
-    /// <param name="key"></param>
+    /*
+    * 键盘按下
+    */
     public void onKeyDown(char key)
     {
         super.onKeyDown(key);
@@ -93,10 +94,9 @@ public class TextBoxZoom extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 鼠标按下
-    /// </summary>
-    /// <param name="touchInfo"></param>
+    /*
+    * 鼠标按下
+    */
     public void onTouchDown(FCTouchInfo touchInfo)
     {
         super.onTouchDown(touchInfo);
@@ -123,11 +123,9 @@ public class TextBoxZoom extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 重绘方法
-    /// </summary>
-    /// <param name="paint"></param>
-    /// <param name="clipRect"></param>
+    /*
+    * 鼠标按下
+    */
     public void onPaint(FCPaint paint, FCRect clipRect)
     {
         if (m_iTextBox != null)
@@ -368,9 +366,9 @@ public class TextBoxZoom extends FCDiv {
         }
     }
 
-    /// <summary>
-    /// 更新布局方法
-    /// </summary>
+    /*
+    * 更新布局方法下
+    */
     public void update()
     {
         if (m_vScrollBar != null)

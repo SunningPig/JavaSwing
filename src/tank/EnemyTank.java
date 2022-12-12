@@ -1,58 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 import java.util.Random;
 
-/// <summary>
-/// 敌方坦克
-/// </summary>
+/*
+ * 敌方坦克
+ */
 public class EnemyTank extends TankBase {
-    /// <summary>
-    /// 构造方法
-    /// </summary>
-    /// <param name="textureImg">背景图片</param>
-    /// <param name="itemPosition">位置</param>
-    /// <param name="tankSpeed">速度</param>
-    /// <param name="itemGroup">阵营</param>
-    /// <param name="isTreasure">是否为宝物</param>
-    /// <param name="treasureType">类型</param>
-    /// <param name="tankWar">坦克大战</param>
+    /*
+    * 构造方法
+    */
     public EnemyTank(String imagePath, FCPoint itemPosition, int tankSpeed, ItemGroupEnum itemGroup, TreasureTypeEnum treasureType, TankWar tankWar) {
         super(imagePath, itemPosition, tankSpeed, itemGroup, tankWar);
         m_treasureType = treasureType;
         setBounds(new FCRect(itemPosition.x, itemPosition.y, itemPosition.x + m_tankWar.m_itemSize.cx,
             itemPosition.y + m_tankWar.m_itemSize.cy));
-        //设置秒表
     }
     
+    /*
+    * 添加视图
+    */
     public void onAdd(){
         super.onAdd();
         startTimer(m_timerID, 50);
     }
 
-    /// <summary>
-    /// 移动记录
-    /// </summary>
+    /*
+    * 移动记录
+    */
     private float m_movingRecord = 0;
 
     private int m_timerID = FCView.getNewTimerID();
 
-    /// <summary>
-    /// 获取或设置坦克携带的宝物
-    /// </summary>
+    /*
+    * 获取或设置坦克携带的宝物
+    */
     public TreasureTypeEnum m_treasureType = TreasureTypeEnum.None;
 
+    /*
+    * 位置改变
+    */
     public void onLocationChanged() {
         super.onLocationChanged();
     }
 
-    /// <summary>
-    /// 坦克移动
-    /// </summary>
+    /*
+    * 坦克移动
+    */
     private void autoMove()
     {
         // 是否被定时
@@ -136,9 +129,9 @@ public class EnemyTank extends TankBase {
         }
     }
 
-    /// <summary>
-    /// 改变坦克方向
-    /// </summary>
+    /*
+    * 改变坦克方向
+    */
     private void changeDirection() {
         int randomNumber = m_random.nextInt(4);
         switch (randomNumber) {
@@ -157,19 +150,16 @@ public class EnemyTank extends TankBase {
         }
     }
 
-    /// <summary>
-    /// 获取控件类型
-    /// </summary>
-    /// <returns>类型</returns>
+    /*
+    * 获取控件类型
+    */
     public String getViewType() {
         return "EnemyTank";
     }
 
-    /// <summary>
-    /// 绘图方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 绘图方法
+    */
     public void onPaintBackground(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth();
@@ -199,11 +189,10 @@ public class EnemyTank extends TankBase {
             paint.drawImage(imagePath, rect);
         }
     }
-
-    /// <summary>
-    /// 定时操作
-    /// </summary>
-    /// <param name="timerID">定时器ID</param>
+    
+    /*
+    * 定时操作
+    */
     public void onTimer(int timerID) {
         callTimerEvents(FCEventID.Timer, timerID);
         if (timerID == m_timerID) {

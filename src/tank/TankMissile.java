@@ -1,26 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 import java.util.*;
 
-/// <summary>
-/// 子弹类
-/// </summary>
+/*
+* 子弹类
+*/
 public class TankMissile extends BaseMovedItem {
-    /// <summary>
-    /// 构造函数
-    /// </summary>
-    /// <param name="backgroundImage">背景图片</param>
-    /// <param name="itemPosition">位置</param>
-    /// <param name="missileSpeed">子弹速度</param>
-    /// <param name="itemGroup">阵营</param>
-    /// <param name="missileDirection">子弹方向</param>
-    /// <param name="parentTank">所属坦克</param>
-    /// <param name="tankWar">坦克大战</param>
+    /*
+    * 构造函数
+    */
     public TankMissile(String backgroundImage, FCPoint itemPosition, int missileSpeed, ItemGroupEnum itemGroup, DirectionEnum missileDirection, TankBase parentTank, TankWar tankWar){
         super(backgroundImage, itemPosition, missileSpeed, itemGroup, tankWar);
         m_parentTank = parentTank;
@@ -31,30 +19,29 @@ public class TankMissile extends BaseMovedItem {
         setBounds(getRegionRect());
     }
 
-    /// <summary>
-    /// 一帧在位图中的大小
-    /// </summary>
+    /*
+    * 一帧在位图中的大小
+    */
     private FCPoint m_bulletSize = new FCPoint(8, 8);
 
-    /// <summary>
-    /// 获取或设置子弹方向
-    /// </summary>
+    /*
+    * 获取或设置子弹方向
+    */
     public DirectionEnum m_missileDirection;
 
-    /// <summary>
-    /// 获取或设置子弹的等级
-    /// </summary>
+    /*
+    * 获取或设置子弹的等级
+    */
     public int m_missileLevel = 1;
 
-    /// <summary>
-    /// 获取所属坦克
-    /// </summary>
+    /*
+    * 获取所属坦克
+    */
     public TankBase m_parentTank = null;
 
-    /// <summary>
-    /// 碰撞检测
-    /// </summary>
-    /// <returns>是否碰撞</returns>
+    /*
+    * 碰撞检测
+    */
     public boolean collide() {
         TankTreasure treasure = null;
         ArrayList<BaseItem> removedItems = new ArrayList<BaseItem>();
@@ -257,27 +244,24 @@ public class TankMissile extends BaseMovedItem {
         return false;
     }
 
-    /// <summary>
-    /// 获取控件类型
-    /// </summary>
-    /// <returns>类型</returns>
+    /*
+    * 获取控件类型
+    */
     public String getViewType() {
         return "TankMissile";
     }
 
-    /// <summary>
-    /// 获取物体的区域大小
-    /// </summary>
-    /// <returns>矩形</returns>
+    /*
+    * 获取物体的区域大小
+    */
     public FCRect getRegionRect() {
         FCPoint location = getLocation();
         return new FCRect(location.x, location.y, location.x + m_bulletSize.x, location.y + m_bulletSize.y);
     }
 
-    /// <summary>
-    /// 子弹移动
-    /// </summary>
-    /// <param name="direction">方向</param>
+    /*
+    * 子弹移动
+    */
     public void move(DirectionEnum direction) {
         collide();
         setTick(getTick() + 1);
@@ -324,11 +308,9 @@ public class TankMissile extends BaseMovedItem {
         }
     }
 
-    /// <summary>
-    /// 绘图方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 绘图方法
+    */
     public void onPaintBackground(FCPaint paint, FCRect clipRect) {
         setBounds(getRegionRect());
         super.onPaintBackground(paint, clipRect);

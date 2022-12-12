@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import facecat.topin.core.*;
@@ -11,11 +5,11 @@ import facecat.topin.btn.*;
 import facecat.topin.tab.*;
 import java.util.*;
 
-/** 
- 透明按钮
+/* 
+* 透明按钮
 */
 public class RibbonButton extends FCButton {
-	/**
+	/*
 	 * 创建透明按钮
 	 */
 	public RibbonButton() {
@@ -26,7 +20,7 @@ public class RibbonButton extends FCButton {
 
 	private int m_arrowType;
 
-	/**
+	/*
 	 * 获取或设置箭头类型
 	 */
 	public final int getArrowType() {
@@ -37,7 +31,7 @@ public class RibbonButton extends FCButton {
 		m_arrowType = value;
 	}
 
-	/**
+	/*
 	 * 获取或设置是否选中
 	 */
 	public final boolean isSelected() {
@@ -56,10 +50,9 @@ public class RibbonButton extends FCButton {
 		return false;
 	}
 
-	/// <summary>
-	/// 获取要绘制的前景色
-	/// </summary>
-	/// <returns>前景色</returns>
+        /*
+	 * 获取要绘制的前景色
+	 */
 	public long getPaintingTextColor() {
 		if (isEnabled()) {
 			return MyColor.USERCOLOR27;
@@ -68,11 +61,9 @@ public class RibbonButton extends FCButton {
 		}
 	}
 
-	/// <summary>
-	/// 重绘背景方法
-	/// </summary>
-	/// <param name="paint"></param>
-	/// <param name="clipRect"></param>
+        /*
+	 * 重绘背景方法
+	 */
 	public void onPaintBackground(FCPaint paint, FCRect clipRect) {
 		FCNative inative = getNative();
 		int width = getWidth(), height = getHeight();

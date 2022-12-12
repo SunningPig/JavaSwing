@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 
-/**
- *
- * @author taode
- */
+/*
+* 证券市场
+*/
 public class CoinSecurityData {
     public double m_open;
     public double m_high;

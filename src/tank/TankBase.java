@@ -1,81 +1,69 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tank;
 import facecat.topin.core.*;
 import java.util.*;
 
-/// <summary>
-/// 坦克基类
-/// </summary>
+/*
+* 坦克基类
+*/
 public class TankBase extends BaseMovedItem {
-    /// <summary>
-    /// 构造函数
-    /// </summary>
-    /// <param name="imagePath">背景图片</param>
-    /// <param name="itemPosition">位置</param>
-    /// <param name="tankSpeed">速度</param>
-    /// <param name="itemGroup">阵营</param>
-    /// <param name="tankWar">坦克大战</param>
+    /*
+    * 构造函数
+    */
     public TankBase(String imagePath, FCPoint itemPosition, int tankSpeed, ItemGroupEnum itemGroup, TankWar tankWar){
         super(imagePath, itemPosition, tankSpeed, itemGroup, tankWar);
         m_itemImgLayer = 0.5f;
     }
 
-    /// <summary>
-    /// 获取或设置爆炸集合
-    /// </summary>
+    /*
+    * 获取或设置爆炸集合
+    */
     public ArrayList<TankBlast> m_blast = new ArrayList<TankBlast>();
 
-    /// <summary>
-    /// 获取或设置爆炸的图片
-    /// </summary>
+    /*
+    * 获取或设置爆炸的图片
+    */
     public String m_blastImg;
 
-    /// <summary>
-    /// 获取或设置坦克生命
-    /// </summary>
+    /*
+    * 获取或设置坦克生命
+    */
     public int m_blood = 1;
 
-    /// <summary>
-    /// 获取或设置坦克是否无敌
-    /// </summary>
+    /*
+    * 获取或设置坦克是否无敌
+    */
     public boolean m_isShield = false;
 
-    /// <summary>
-    /// 获取或设置一次发出的子弹数量
-    /// </summary>
+    /*
+    * 获取或设置一次发出的子弹数量
+    */
     public int m_missileQuantity = 1;
 
-    /// <summary>
-    /// 获取或设置子弹的图片
-    /// </summary>
+    /*
+    * 获取或设置子弹的图片
+    */
     public String m_missileImg;
 
-    /// <summary>
-    /// 获取或设置子弹的速度
-    /// </summary>
+    /*
+    * 获取或设置子弹的速度
+    */
     private int m_missileSpeed = 1;
 
-    /// <summary>
-    /// 获取或设置坦克的子弹集合
-    /// </summary>
+    /*
+    * 获取或设置坦克的子弹集合
+    */
     public ArrayList<TankMissile> m_tankMissiles = new ArrayList<TankMissile>();
 
-    /// <summary>
-    /// 切换基地周围的障碍物类型
-    /// </summary>
-    /// <param name="barrierType">障碍物类型</param>
+    /*
+    * 切换基地周围的障碍物类型
+    */
     private void ChangeBossBarrier(BarrierTypeEnum barrierType) {
 
     }
 
-    /// <summary>
-    /// 判断是否碰撞
-    /// </summary>
-    /// <returns>状态</returns>
+    /*
+    * 判断是否碰撞
+    */
     public boolean collide()
     {
         TankTreasure treasure = null;
@@ -187,9 +175,9 @@ public class TankBase extends BaseMovedItem {
         return false;
     }
 
-    /// <summary>
-    /// 开炮
-    /// </summary>
+    /*
+    * 开炮
+    */
     public void fire()
     {
         if (m_tankMissiles.size() == 0)
@@ -223,27 +211,24 @@ public class TankBase extends BaseMovedItem {
         }
     }
 
-    /// <summary>
-    /// 获取控件类型
-    /// </summary>
-    /// <returns>类型</returns>
+    /*
+    * 获取控件类型
+    */
     public String getViewType() {
         return "TankBase";
     }
 
-    /// <summary>
-    /// 获取占用矩形
-    /// </summary>
-    /// <returns></returns>
+    /*
+    * 获取占用矩形
+    */
     public FCRect getRegionRect() {
         FCPoint location = getLocation();
         return new FCRect(location.x, location.y, location.x + getWidth(), location.y + getHeight());
     }
 
-    /// <summary>
-    /// 获取宝物
-    /// </summary>
-    /// <param name="treasure">宝物</param>
+    /*
+    * 获取宝物
+    */
     public void getTreasure(TankTreasure treasure)
     {
         if (treasure.m_treasureType == TreasureTypeEnum.Bomb)
@@ -312,10 +297,9 @@ public class TankBase extends BaseMovedItem {
         }
     }
 
-    /// <summary>
-    /// 移动
-    /// </summary>
-    /// <param name="direction">方向</param>
+    /*
+    * 移动
+    */
     public void move(DirectionEnum direction) {
 
     }

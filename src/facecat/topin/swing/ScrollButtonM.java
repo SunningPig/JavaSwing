@@ -1,9 +1,3 @@
-/*
-* FaceCat图形通讯框架(非开源)
-* 著作权编号:2015SR229355
-* 上海卷卷猫信息技术有限公司
-*/
-
 package facecat.topin.swing;
 
 import facecat.topin.core.*;
@@ -13,19 +7,20 @@ import facecat.topin.scroll.*;
 import facecat.topin.tab.*;
 import java.util.*;
 
+/*
+* 滚动按钮
+*/
 public class ScrollButtonM extends FCButton {
-    /**
-     创建透明按钮
-
-     */
+    /*
+    * 创建按钮
+    */
     public ScrollButtonM()
     {
         setBorderColor(FCColor.None);
     }
 
-    /**
+    /*
      重绘背景
-
      @param paint 绘图对象
      @param clipRect 裁剪区域
      */

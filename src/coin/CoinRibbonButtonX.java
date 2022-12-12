@@ -1,25 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 import facecat.topin.core.*;
 import facecat.topin.btn.*;
 import facecat.topin.swing.*;
 
-/**
- *
- * @author taode
- */
-/// <summary>
-/// 透明按钮
-/// </summary>
+/*
+* 透明按钮
+*/
 public class CoinRibbonButtonX extends FCButton
 {
-    /// <summary>
-    /// 创建按钮
-    /// </summary>
+    /*
+    * 创建按钮
+    */
     public CoinRibbonButtonX()
     {
         setBorderColor(FCColor.None);
@@ -31,6 +22,9 @@ public class CoinRibbonButtonX extends FCButton
 
     private int m_tick = 0;
 
+    /*
+    * 鼠标进入
+    */
     public void onTouchEnter(FCTouchInfo touchInfo)
     {
         super.onTouchEnter(touchInfo);
@@ -38,6 +32,9 @@ public class CoinRibbonButtonX extends FCButton
         startTimer(m_timerID, 10);
     }
 
+    /*
+    * 秒表方法
+    */
     public void onTimer(int timerID)
     {
         super.onTimer(timerID);
@@ -52,11 +49,9 @@ public class CoinRibbonButtonX extends FCButton
         }
     }
 
-    /// <summary>
-    /// 重绘背景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘背景方法
+    */
     public void onPaint(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth(), height = getHeight();

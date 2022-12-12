@@ -1,28 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package coin;
 import facecat.topin.core.*;
 import facecat.topin.grid.*;
 import facecat.topin.swing.*;
 import java.util.*;
 
-
-/// <summary>
-/// 行的扩展
-/// </summary>
+/*
+* 行的扩展
+*/
 public class GridRowEx extends FCGridRow
 {
+    /*
+    * 创建行
+    */
     public GridRowEx()
     {
         setHeight(25);
     }
-
-    /// <summary>
-    /// 重绘方法
-    /// </summary>
+    
+    /*
+    * 重绘方法
+    */
     public void onPaint(FCPaint paint, FCRect clipRect, boolean isAlternate)
     {
         FCGrid grid = getGrid();
@@ -52,12 +49,9 @@ public class GridRowEx extends FCGridRow
         }
     }
 
-    /// <summary>
-    /// 重绘边线
-    /// </summary>
-    /// <param name="paint"></param>
-    /// <param name="clipRect"></param>
-    /// <param name="isAlternate"></param>
+    /*
+    * 重绘边线
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect, boolean isAlternate)
     {
         FCGrid grid = getGrid();

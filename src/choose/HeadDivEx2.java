@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package choose;
 
 import facecat.topin.core.*;
 import facecat.topin.date.*;
 import facecat.topin.swing.*;
 
+/*
+* 头部图层
+*/
 public class HeadDivEx2 extends HeadDiv {
-    /// <summary>
-    /// 创建层
-    /// </summary>
-    /// <param name="calendar">日历</param>
+    /*
+    * 构造函数
+    */
     public HeadDivEx2(FCCalendar calendar)
     {
         super(calendar);
@@ -25,8 +23,14 @@ public class HeadDivEx2 extends HeadDiv {
         setBorderColor(FCColor.None);
     }
 
+    /*
+    * 日历
+    */
     private FCCalendarEx2 m_calendarEx;
 
+    /*
+    * 鼠标移动事件
+    */
     public void onTouchMove(FCTouchInfo touchInfo)
     {
         super.onTouchMove(touchInfo);
@@ -34,6 +38,9 @@ public class HeadDivEx2 extends HeadDiv {
         invalidate();
     }
 
+    /*
+    * 鼠标按下事件
+    */
     public void onTouchDown(FCTouchInfo touchInfo)
     {
         super.onTouchDown(touchInfo);
@@ -50,11 +57,9 @@ public class HeadDivEx2 extends HeadDiv {
         }
     }
 
-    /// <summary>
-    /// 重绘背景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘背景方法
+    */
     public void onPaintBackground(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth(), height = getHeight();
@@ -62,20 +67,16 @@ public class HeadDivEx2 extends HeadDiv {
         paint.fillRoundRect(getPaintingBackColor(), rect, 4);
     }
 
-    /// <summary>
-    /// 重绘边线方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘边线方法
+    */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {
     }
 
-    /// <summary>
-    /// 重绘前景方法
-    /// </summary>
-    /// <param name="paint">绘图对象</param>
-    /// <param name="clipRect">裁剪区域</param>
+    /*
+    * 重绘前景方法
+    */
     public void onPaintForeground(FCPaint paint, FCRect clipRect)
     {
         int width = getWidth(), height = getHeight();
@@ -99,9 +100,9 @@ public class HeadDivEx2 extends HeadDiv {
         }
     }
 
-    /// <summary>
-    /// 布局更新方法
-    /// </summary>
+    /*
+    * 布局更新方法
+    */
     public void update()
     {
         int width = getWidth(), height = getHeight();
