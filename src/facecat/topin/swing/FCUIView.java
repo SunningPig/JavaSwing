@@ -61,7 +61,7 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         m_host.setNative(m_native);
         m_host.setView(this);
         m_native.setSize(new FCSize(getWidth(), getHeight()));
-        m_native.setAllowScaleSize(true);
+        //m_native.setAllowScaleSize(true);
         
         m_mainFrame = new UIXmlEx();
         m_mainFrame = new CoinMainFrame();
