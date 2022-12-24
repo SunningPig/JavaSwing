@@ -3,71 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankWar.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/MonthButtonEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/YearButtonEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/RibbonButton.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SecurityData.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/EnemyTank.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankGameState.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/HighLightInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingTimer.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/ChartDemo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/PyButtonDiv.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinExchangeInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/OverFlowDiv2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/FindReplaceDiv.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankTreasure.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SplitterButton.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/SGlobalService.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/BaseMovedItem.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankBase.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/MyColor.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/PlayTank.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinRateInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinMainFrame.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/ItemGroupEnum.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/IndicatorData.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankBlast.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/FCCalendarEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/MyTank.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinRibbonButtonX.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/DirectionEnum.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/HeadDivEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinContentDiv.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/AutoHighLightPython.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/WallBarrier.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/test.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankMissile.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinCapService.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/Sound.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/BaseItem.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/FCUIView.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinSecurityData.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/Choose2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/ScrollButtonM.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TankEagle.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/DayButtonEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/DayDivEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/ArrowButtonM.java</file>
             <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/UIXmlEx.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/AutoHighLightCore.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/TextBoxZoom.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/UpDownInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/TreasureTypeEnum.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/iFCRedoUndoInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/GridRowEx.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/iTextBox.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/FCDraw.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/FCUIView.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingPaint.java</file>
             <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingHost.java</file>
             <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/ArrowButtonEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/DateTitleEx2.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/MyChartDiv.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/tank/BarrierTypeEnum.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinAssetInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinMarketInfo.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingPaint.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinChartDiv.java</file>
         </group>
     </open-files>
 </project-private>

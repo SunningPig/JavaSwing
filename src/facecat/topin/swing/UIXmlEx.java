@@ -43,7 +43,7 @@ public class UIXmlEx extends FCUIXml
             super.loadXml(xmlPath, null);
         }
 
-        public double m_scaleFactor = 0.5;
+        public double m_scaleFactor = 1.0;
 
         /*
         * 重置缩放尺寸
