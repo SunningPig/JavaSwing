@@ -168,6 +168,7 @@ public class Choose2 extends FCView {
 
     /*
     * 秒表事件
+    * timerID 秒表ID
     */
     public void onTimer(int timerID)
     {
@@ -212,6 +213,7 @@ public class Choose2 extends FCView {
 
     /*
     * 鼠标移动事件
+    * touchInfo 触摸信息
     */
     public void onTouchMove(FCTouchInfo touchInfo)
     {
@@ -221,6 +223,8 @@ public class Choose2 extends FCView {
 
     /*
     * 绘制边线
+    * paint 绘图对象
+    * clipRect 裁剪区域
     */
     public void onPaintBorder(FCPaint paint, FCRect clipRect)
     {

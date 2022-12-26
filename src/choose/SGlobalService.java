@@ -39,6 +39,8 @@ public class SGlobalService extends FCClientService {
     
     /*
     * 获取涨跌停信息
+    * filterCodes 过滤代码
+    * upDownInfos 涨跌数据
     */
     public int getUpDownInfo(ArrayList<String> filterCodes, int n, ArrayList<UpDownInfo> upDownInfos)
     {

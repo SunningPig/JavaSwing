@@ -4,10 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/UIXmlEx.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/FCUIView.java</file>
-            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingPaint.java</file>
             <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingHost.java</file>
             <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/ArrowButtonEx2.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/SwingPaint.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/FCUIView.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/facecat/topin/swing/test.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/SGlobalService.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/UpDownInfo.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/choose/Choose2.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinAssetInfo.java</file>
+            <file>file://Mac/Home/Desktop/todd/facecat/facecat_swing/src/coin/CoinCapService.java</file>
         </group>
     </open-files>
 </project-private>
