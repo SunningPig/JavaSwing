@@ -187,7 +187,7 @@ public class ChartDemo {
     */
     public static ArrayList<SecurityData> getSecurityDatas() {
         ArrayList<SecurityData> datas = new ArrayList<SecurityData>();
-        String filePath =  System.getProperty("user.dir") + "\\SH600000.txt";
+        String filePath =  DataCenter.getAppPath() + DataCenter.m_seperator + "SH600000.txt";
         String content = "";
         RefObject<String> refContent = new RefObject<String>(content);
         FCFile.read(filePath, refContent);

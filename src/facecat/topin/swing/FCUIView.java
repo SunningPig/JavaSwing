@@ -68,8 +68,8 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         m_mainFrame.setNative(m_native);
         String content = "";
         RefObject<String> refContent = new RefObject<String>(content);
-        String dir = System.getProperty("user.dir") + "\\MainFrame.xml";
-        dir = System.getProperty("user.dir") + "\\CoinMainFrame.xml";
+        String dir = DataCenter.getAppPath() + DataCenter.m_seperator + "MainFrame.xml";
+        dir = DataCenter.getAppPath() + DataCenter.m_seperator + "CoinMainFrame.xml";
         FCFile.read(dir, refContent);
         content = refContent.argvalue;
         m_mainFrame.load(content);
@@ -90,7 +90,7 @@ public class FCUIView extends JPanel implements MouseListener, MouseMotionListen
         itextBox.setLineHeight(20);
         itextBox.m_autoHighLightType = "Python";
         itextBox.setFont(new FCFont("Default", 14, false, false, false));
-        String codePath = System.getProperty("user.dir") + "\\DMI买入.py";
+        String codePath = DataCenter.getAppPath() + DataCenter.m_seperator + "DMI买入.py";
         refContent = new RefObject<String>(content);
         FCFile.read(codePath, refContent);
         content = refContent.argvalue;

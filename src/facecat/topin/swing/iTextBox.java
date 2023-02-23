@@ -1085,6 +1085,16 @@ public class iTextBox extends FCDiv {
     */
     public void onCopy() {
         String selectionText = getSelectionText();
+        if (selectionText != null && selectionText.length() > 2) {
+            if (selectionText.indexOf("\r\n") == 0) {
+                selectionText = selectionText.substring(2);
+            }
+            if (selectionText.length() > 2) {
+                if (selectionText.lastIndexOf("\r\n") == selectionText.length() - 2) {
+                    selectionText = selectionText.substring(0, selectionText.length() - 2);
+                }
+            }
+        }
         if (selectionText != null && selectionText.length() > 0) {
             FCHost host = getNative().getHost();
             host.copy(selectionText);
