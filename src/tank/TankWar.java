@@ -1,5 +1,6 @@
 package tank;
 import facecat.topin.core.*;
+import facecat.topin.swing.DataCenter;
 import java.util.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -125,7 +126,7 @@ public class TankWar extends FCView {
     * 获取当前路径
     */
     public static String getCurrentPath(){
-        return System.getProperty("user.dir");
+        return DataCenter.getAppPath();
     }
 
     /*
@@ -136,10 +137,10 @@ public class TankWar extends FCView {
             if (m_myTank == null) {
                 String currentPath = getCurrentPath();
                 // 初始化我方坦克
-                MyTank myTank = new MyTank(currentPath + "\\config\\tank\\Content\\Images\\p1tank", new FCPoint(m_itemSize.cx * 4, m_itemSize.cy * 12), 1,
+                MyTank myTank = new MyTank(currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "p1tank", new FCPoint(m_itemSize.cx * 4, m_itemSize.cy * 12), 1,
                     ItemGroupEnum.Friendly, this);
                 myTank.m_missileImg = m_bulletImgs;
-                myTank.m_blastImg = currentPath + "\\config\\tank\\Content\\Images\\explode1.bmp";
+                myTank.m_blastImg = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "explode1.bmp";
                 m_items.add(myTank);
                 addView(myTank);
                 m_myTank = myTank;
@@ -153,7 +154,7 @@ public class TankWar extends FCView {
     private void addEnemyTank() {
         String currentPath = getCurrentPath();
         try {
-            String xmlPath = currentPath + "\\config\\tank\\Tank1.xml";
+            String xmlPath = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Tank1.xml";
             String xml = "";
             RefObject<String> refXml = new RefObject<String>(xml);
             FCFile.read(xmlPath, refXml);
@@ -173,7 +174,7 @@ public class TankWar extends FCView {
             while (enemyTankSize < 3) {
                 int index = rd.nextInt(3);
                 TreasureTypeEnum treasureType = TreasureTypeEnum.None;
-                String enemymissile = currentPath + "\\config\\tank\\Content\\Images\\enemymissile.png";
+                String enemymissile = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "enemymissile.png";
                 int pos = 0;
                 Node root = doc.getDocumentElement();
                 NodeList nodeList = root.getChildNodes();
@@ -212,20 +213,20 @@ public class TankWar extends FCView {
                             locations.remove(location);
                             switch (nodeName) {
                                 case "slowtank":
-                                    enemyTank = new EnemyTank(currentPath + "\\config\\tank\\Content\\Images\\enemy1", location, 2, ItemGroupEnum.Enemy, treasureType, this);
+                                    enemyTank = new EnemyTank(currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "enemy1", location, 2, ItemGroupEnum.Enemy, treasureType, this);
                                     enemyTank.m_missileImg = enemymissile;
-                                    enemyTank.m_blastImg = currentPath + "\\config\\tank\\Content\\Images\\explode1.bmp";
+                                    enemyTank.m_blastImg = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "explode1.bmp";
                                     enemyTank.m_blood = 2;
                                     break;
                                 case "quicktank":
-                                    enemyTank = new EnemyTank(currentPath + "\\config\\tank\\Content\\Images\\enemy2", location, 1, ItemGroupEnum.Enemy, treasureType, this);
+                                    enemyTank = new EnemyTank(currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "enemy2", location, 1, ItemGroupEnum.Enemy, treasureType, this);
                                     enemyTank.m_missileImg = enemymissile;
-                                    enemyTank.m_blastImg = currentPath + "\\config\\tank\\Content\\Images\\explode1.bmp";
+                                    enemyTank.m_blastImg = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "explode1.bmp";
                                     break;
                                 case "armouredtank":
-                                    enemyTank = new EnemyTank(currentPath + "\\config\\tank\\Content\\Images\\enemy3", location, 1, ItemGroupEnum.Enemy, treasureType, this);
+                                    enemyTank = new EnemyTank(currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "enemy3", location, 1, ItemGroupEnum.Enemy, treasureType, this);
                                     enemyTank.m_missileImg = enemymissile;
-                                    enemyTank.m_blastImg = currentPath + "\\config\\tank\\Content\\Images\\explode1.bmp";
+                                    enemyTank.m_blastImg = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "explode1.bmp";
                                     enemyTank.m_blood = 3;
                                     enemyTank.m_missileQuantity = 2;
                                     break;
@@ -322,28 +323,28 @@ public class TankWar extends FCView {
         {
             String currentPath = getCurrentPath();
             // 加载宝物图片
-            m_treasureImgs.put(TreasureTypeEnum.Bomb, currentPath + "\\config\\tank\\Content\\Images\\bomb.bmp");
-            m_treasureImgs.put(TreasureTypeEnum.Star, currentPath + "\\config\\tank\\Content\\Images\\star.bmp");
-            m_treasureImgs.put(TreasureTypeEnum.Shield, currentPath + "\\config\\tank\\Content\\Images\\shield.bmp");
-            m_treasureImgs.put(TreasureTypeEnum.Shovel, currentPath + "\\config\\tank\\Content\\Images\\shovel.bmp");
-            m_treasureImgs.put(TreasureTypeEnum.Timer, currentPath + "\\config\\tank\\Content\\Images\\timer.bmp");
+            m_treasureImgs.put(TreasureTypeEnum.Bomb, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "bomb.bmp");
+            m_treasureImgs.put(TreasureTypeEnum.Star, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "star.bmp");
+            m_treasureImgs.put(TreasureTypeEnum.Shield, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "shield.bmp");
+            m_treasureImgs.put(TreasureTypeEnum.Shovel, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "shovel.bmp");
+            m_treasureImgs.put(TreasureTypeEnum.Timer, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "timer.bmp");
 
             // 加载障碍物图片
-            m_barrierImgs.put(BarrierTypeEnum.Grass, currentPath + "\\config\\tank\\Content\\Images\\smallgrass.bmp");
-            m_barrierImgs.put(BarrierTypeEnum.Steel, currentPath + "\\config\\tank\\Content\\Images\\smallsteel.bmp");
-            m_barrierImgs.put(BarrierTypeEnum.Wall, currentPath + "\\config\\tank\\Content\\Images\\smallwall.bmp");
-            m_barrierImgs.put(BarrierTypeEnum.Water, currentPath + "\\config\\tank\\Content\\Images\\smallwater1.bmp");
-            m_barrierImgs.put(BarrierTypeEnum.Boss, currentPath + "\\config\\tank\\Content\\Images\\boss.bmp");
-            m_barrierImgs.put(BarrierTypeEnum.FailedBoss, currentPath + "\\config\\tank\\Content\\Images\\failedboss.bmp");
+            m_barrierImgs.put(BarrierTypeEnum.Grass, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "smallgrass.bmp");
+            m_barrierImgs.put(BarrierTypeEnum.Steel, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "smallsteel.bmp");
+            m_barrierImgs.put(BarrierTypeEnum.Wall, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "smallwall.bmp");
+            m_barrierImgs.put(BarrierTypeEnum.Water, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "smallwater1.bmp");
+            m_barrierImgs.put(BarrierTypeEnum.Boss, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "boss.bmp");
+            m_barrierImgs.put(BarrierTypeEnum.FailedBoss, currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "failedboss.bmp");
 
             // 加载护盾图片
-            m_shieldImg = currentPath + "\\config\\tank\\Content\\Images\\shields.bmp";
+            m_shieldImg = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "shields.bmp";
 
             // 加载子弹图片
-            m_bulletImgs = currentPath + "\\config\\tank\\Content\\Images\\bullet.bmp";
+            m_bulletImgs = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "bullet.bmp";
 
             // 加载GameOver图片
-            m_gameOverTexture = currentPath + "\\config\\tank\\Content\\Images\\gameover.png";
+            m_gameOverTexture = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Content" + DataCenter.m_seperator + "Images" + DataCenter.m_seperator + "gameover.png";
 
             addMyTank();
             // 初始化飞鹰基地
@@ -353,7 +354,7 @@ public class TankWar extends FCView {
             addEnemyTank();
             // 加载地图信息
             try {
-                String xmlPath = currentPath + "\\config\\tank\\Map1.xml";
+                String xmlPath = currentPath + DataCenter.m_seperator + "config" + DataCenter.m_seperator + "tank" + DataCenter.m_seperator + "Map1.xml";
                 String xml = "";
                 RefObject<String> refXml = new RefObject<String>(xml);
                 FCFile.read(xmlPath, refXml);
